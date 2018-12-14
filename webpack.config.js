@@ -6,17 +6,25 @@ const path = require('path');
 module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
+    port: 3000,
   },
   entry: {
-    scripts: './src/index.js',
+    scripts: './src/index.jsx',
   },
   module: {
     rules: [
       {
         exclude: /node_modules/,
-        test: /\.js$/,
+        test: /\.jsx?$/,
         use: [
           'babel-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
         ],
       },
     ],
@@ -33,4 +41,12 @@ module.exports = {
       template: 'public/index.html',
     }),
   ],
+  resolve: {
+    alias: {
+      Components: path.resolve(__dirname, 'src/components/'),
+      Constants: path.resolve(__dirname, 'src/constants.js'),
+      Views: path.resolve(__dirname, 'src/views/'),
+    },
+    extensions: ['.js', '.jsx'],
+  },
 };
