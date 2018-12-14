@@ -1,0 +1,37 @@
+{
+  "name": "iot-firebase-authentication-client",
+  "version": "0.1.0",
+  "description": "IoT Firebase Authentication Client",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "lint": "eslint src",
+    "start": "webpack-dev-server --mode=development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1oginov/IoT-Firebase-Authentication-Client.git"
+  },
+  "author": "Danila Loginov <danila@loginov.rocks> (https://loginov.rocks)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1oginov/IoT-Firebase-Authentication-Client/issues"
+  },
+  "homepage": "https://github.com/1oginov/IoT-Firebase-Authentication-Client",
+  "dependencies": {
+    "firebase": "^5.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^1.0.0",
+    "dotenv-webpack": "^1.5.7",
+    "eslint": "^5.10.0",
+    "eslint-config-google": "^0.11.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
