@@ -3,11 +3,16 @@
 import { connect } from 'react-redux';
 import { compose, withHandlers, type HOC } from 'recompose';
 
-import { createFirebaseApp as dispatchCreateFirebaseApp } from '../../actions';
+import { createFirebaseApp as createFirebaseAppCreator } from '../../actions';
+import withNavigationHandlers from '../../enhancers/withNavigationHandlers';
+import * as R from '../../routes';
 
-const mapDispatchToProps = { createFirebaseApp: dispatchCreateFirebaseApp };
+const mapDispatchToProps = { createFirebaseApp: createFirebaseAppCreator };
 
 const enhancer: HOC<*, {}> = compose(
+  withNavigationHandlers({
+    handleBackClick: R.HOME,
+  }),
   connect(null, mapDispatchToProps),
   withHandlers({
 

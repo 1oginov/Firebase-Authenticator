@@ -35,9 +35,12 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint-config-airbnb": "^17.1.0",
     "flow-bin": "^0.89.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "react-test-renderer": "^16.6.3"
   },
   "browserslist": [
     ">0.2%",

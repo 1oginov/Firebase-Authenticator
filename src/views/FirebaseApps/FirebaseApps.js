@@ -7,13 +7,18 @@ import type { FirebaseApp } from '../../lib/FirebaseApp';
 
 type Props = {
   apps: Array<FirebaseApp>,
+  handleCreateAppClick: () => void,
   onSelect: string => void,
 };
 
-const FirebaseApps = ({ apps, onSelect }: Props) => (
+const FirebaseApps = ({ apps, handleCreateAppClick, onSelect }: Props) => (
   <React.Fragment>
 
-    <h1>Firebase app</h1>
+    <h1>Firebase apps</h1>
+
+    <div>
+      <button onClick={handleCreateAppClick} type="button">Create</button>
+    </div>
 
     <FirebaseAppsList apps={apps} onSelect={onSelect} />
 
