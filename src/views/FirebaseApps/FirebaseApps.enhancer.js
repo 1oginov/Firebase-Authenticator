@@ -1,7 +1,7 @@
 // @flow
 
 import { connect } from 'react-redux';
-import { compose, withHandlers } from 'recompose';
+import { compose, withHandlers, type HOC } from 'recompose';
 
 import { selectFirebaseApp as dispatchSelectFirebaseApp } from '../../actions';
 
@@ -11,7 +11,7 @@ const mapStateToProps = ({ firebaseApps }) => ({
 
 const mapDispatchToProps = { selectFirebaseApp: dispatchSelectFirebaseApp };
 
-export default compose(
+const enhancer: HOC<*, {}> = compose(
   connect(mapStateToProps, mapDispatchToProps),
   withHandlers({
 
@@ -21,3 +21,5 @@ export default compose(
 
   }),
 );
+
+export default enhancer;

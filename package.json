@@ -4,6 +4,7 @@
   "description": "IoT Firebase Authentication App",
   "scripts": {
     "build": "react-scripts build",
+    "coveralls": "npm run test:coverage && cat ./coverage/lcov.info | coveralls",
     "flow": "flow",
     "lint": "eslint src",
     "start": "react-scripts start",
@@ -33,6 +34,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "coveralls": "^3.0.2",
     "eslint-config-airbnb": "^17.1.0",
     "flow-bin": "^0.89.0",
     "jest": "^23.6.0"

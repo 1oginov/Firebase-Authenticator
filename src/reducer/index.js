@@ -1,17 +1,13 @@
 // @flow
 
+import type { Action } from '../actions';
 import * as T from '../actions/types';
 import type { FirebaseApp } from '../lib/FirebaseApp';
 
-type State = {
+export type State = {
   firebaseApps: { [string]: FirebaseApp },
   selectedFirebaseApp: string,
 };
-
-type Action =
-  | { type: typeof T.FIREBASE_APP_CREATED, payload: FirebaseApp }
-  | { type: typeof T.FIREBASE_APP_DELETED, payload: string }
-  | { type: typeof T.FIREBASE_APP_SELECTED, payload: string };
 
 const initialState = {
   firebaseApps: {},

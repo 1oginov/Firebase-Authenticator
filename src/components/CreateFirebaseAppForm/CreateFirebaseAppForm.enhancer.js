@@ -1,9 +1,17 @@
 // @flow
 
-import { compose, withHandlers, withStateHandlers } from 'recompose';
+import {
+  compose, withHandlers, withStateHandlers, type HOC,
+} from 'recompose';
 import uuidv1 from 'uuid/v1';
 
-export default compose(
+import type { FirebaseApp } from '../../lib/FirebaseApp';
+
+type EnhancedComponentProps = {
+  onSubmit: FirebaseApp => void,
+};
+
+const enhancer: HOC<*, EnhancedComponentProps> = compose(
   withStateHandlers(
     {
       apiKey: '',
@@ -47,3 +55,5 @@ export default compose(
 
   }),
 );
+
+export default enhancer;

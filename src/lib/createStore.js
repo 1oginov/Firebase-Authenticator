@@ -1,9 +1,16 @@
 // @flow
 
-import { applyMiddleware, compose, createStore } from 'redux';
+import {
+  applyMiddleware, compose, createStore, type Reducer, type Store as ReduxStore,
+} from 'redux';
 import thunk from 'redux-thunk';
 
-export default (reducer) => {
+import type { Action } from '../actions';
+import type { State } from '../reducer';
+
+export type Store = ReduxStore<State, Action>;
+
+export default (reducer: Reducer<State, Action>): Store => {
   const middleware = [
     thunk,
   ];

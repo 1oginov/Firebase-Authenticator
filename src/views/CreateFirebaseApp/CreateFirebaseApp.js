@@ -3,9 +3,10 @@
 import * as React from 'react';
 
 import CreateFirebaseAppForm from '../../components/CreateFirebaseAppForm';
+import type { FirebaseApp } from '../../lib/FirebaseApp';
 
 type Props = {
-  onSubmit: () => void,
+  onSubmit: FirebaseApp => void,
 };
 
 const CreateFirebaseApp = ({ onSubmit }: Props) => (

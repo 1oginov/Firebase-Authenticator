@@ -7,7 +7,7 @@ import type { FirebaseApp } from '../../lib/FirebaseApp';
 
 type Props = {
   apps: Array<FirebaseApp>,
-  onSelect: () => void,
+  onSelect: string => void,
 };
 
 const FirebaseAppsList = ({ apps, onSelect }: Props) => (
