@@ -1,3 +1,5 @@
+// @flow
+
 import firebase from 'firebase';
 import * as React from 'react';
 
@@ -8,7 +10,14 @@ import Error from '../../views/Error';
 import Guest from '../../views/Guest';
 import Loading from '../../views/Loading';
 
-export default class App extends React.Component {
+type Props = {};
+
+type State = {
+  error: string,
+  isAuthenticated: ?boolean,
+};
+
+export default class App extends React.Component<Props, State> {
   state = {
     error: '',
     isAuthenticated: undefined,
@@ -42,6 +51,8 @@ export default class App extends React.Component {
       this.unregisterAuthObserver();
     }
   }
+
+  unregisterAuthObserver: ?Function;
 
   render() {
     const { error, isAuthenticated } = this.state;

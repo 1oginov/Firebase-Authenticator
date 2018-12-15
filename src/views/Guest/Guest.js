@@ -1,8 +1,12 @@
+// @flow
+
 import firebase from 'firebase';
 import * as React from 'react';
 import FirebaseUi from 'react-firebaseui/FirebaseAuth';
 
-export default class Guest extends React.Component {
+type Props = {};
+
+export default class Guest extends React.Component<Props> {
   uiConfig = {
     callbacks: {
       signInSuccessWithAuthResult: () => false,

@@ -1,11 +1,17 @@
+// @flow
+
 export const getQueryParameters = () => new URLSearchParams(window.location.search);
 
-export const getQueryParameter = (key) => {
+export const getQueryParameter = (key: string) => {
   const params = getQueryParameters();
 
-  return params ? params.get(key) : undefined;
+  if (!params) {
+    return '';
+  }
+
+  return params.get(key) || '';
 };
 
-export const redirect = (url) => {
+export const redirect = (url: string) => {
   window.location = url;
 };
