@@ -1,6 +1,9 @@
 import firebase from 'firebase';
 import * as React from 'react';
 
+import * as C from 'Constants';
+import { getQueryParameter, redirect } from 'Lib/location';
+
 export default class Authenticated extends React.Component {
   state = {
     displayName: '',
@@ -15,8 +18,10 @@ export default class Authenticated extends React.Component {
 
   handleContinue() { // eslint-disable-line class-methods-use-this
     const { refreshToken } = firebase.auth().currentUser;
+    const redirectUrl = getQueryParameter(C.REDIRECT_QUERY_PARAMETER)
+      .replace(C.REDIRECT_REFRESH_TOKEN_PLACEHOLDER, refreshToken);
 
-    console.log(refreshToken);
+    redirect(redirectUrl);
   }
 
   handleSignOut() { // eslint-disable-line class-methods-use-this

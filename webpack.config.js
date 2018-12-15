@@ -45,6 +45,7 @@ module.exports = {
     alias: {
       Components: path.resolve(__dirname, 'src/components/'),
       Constants: path.resolve(__dirname, 'src/constants.js'),
+      Lib: path.resolve(__dirname, 'src/lib/'),
       Views: path.resolve(__dirname, 'src/views/'),
     },
     extensions: ['.js', '.jsx'],
