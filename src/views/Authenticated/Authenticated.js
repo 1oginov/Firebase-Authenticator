@@ -1,8 +1,8 @@
 import firebase from 'firebase';
 import * as React from 'react';
 
-import * as C from 'Constants';
-import { getQueryParameter, redirect } from 'Lib/location';
+import * as C from '../../constants';
+import { getQueryParameter, redirect } from '../../lib/location';
 
 export default class Authenticated extends React.Component {
   state = {

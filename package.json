@@ -1,48 +1,40 @@
 {
-  "name": "iot-firebase-authentication-client",
+  "name": "iot-firebase-authentication-app",
   "version": "0.1.0",
-  "description": "IoT Firebase Authentication Client",
+  "description": "IoT Firebase Authentication App",
   "scripts": {
-    "build": "webpack --mode=production",
-    "lint": "eslint --ext .js,.jsx src",
-    "start": "webpack-dev-server --mode=development --open"
+    "build": "react-scripts build",
+    "flow": "flow",
+    "lint": "eslint src",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "test:coverage": "npm test -- --coverage"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1oginov/IoT-Firebase-Authentication-Client.git"
+    "url": "git+https://github.com/1oginov/IoT-Firebase-Authentication-App.git"
   },
   "author": "Danila Loginov <danila@loginov.rocks> (https://loginov.rocks)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/1oginov/IoT-Firebase-Authentication-Client/issues"
+    "url": "https://github.com/1oginov/IoT-Firebase-Authentication-App/issues"
   },
-  "homepage": "https://github.com/1oginov/IoT-Firebase-Authentication-Client",
+  "homepage": "https://github.com/1oginov/IoT-Firebase-Authentication-App",
   "dependencies": {
     "firebase": "^5.7.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-firebaseui": "^3.1.2"
+    "react-firebaseui": "^3.1.2",
+    "react-scripts": "2.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.0",
-    "@babel/plugin-proposal-class-properties": "^7.2.1",
-    "@babel/preset-env": "^7.2.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
-    "clean-webpack-plugin": "^1.0.0",
-    "css-loader": "^2.0.1",
-    "dotenv-webpack": "^1.5.7",
-    "eslint": "^5.10.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-import-resolver-webpack": "^0.10.1",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
-  }
+    "flow-bin": "^0.89.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

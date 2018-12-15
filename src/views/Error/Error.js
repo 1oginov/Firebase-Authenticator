@@ -1,6 +1,12 @@
+// @flow
+
 import * as React from 'react';
 
-const Error = ({ text }) => (
+type Props = {
+  text: string,
+};
+
+const Error = ({ text }: Props) => (
   <div>
     {text}
   </div>

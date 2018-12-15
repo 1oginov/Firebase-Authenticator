@@ -1,12 +1,12 @@
 import firebase from 'firebase';
 import * as React from 'react';
 
-import * as C from 'Constants';
-import { getQueryParameter } from 'Lib/location';
-import Authenticated from 'Views/Authenticated';
-import Error from 'Views/Error';
-import Guest from 'Views/Guest';
-import Loading from 'Views/Loading';
+import * as C from '../../constants';
+import { getQueryParameter } from '../../lib/location';
+import Authenticated from '../../views/Authenticated';
+import Error from '../../views/Error';
+import Guest from '../../views/Guest';
+import Loading from '../../views/Loading';
 
 export default class App extends React.Component {
   state = {
@@ -38,7 +38,9 @@ export default class App extends React.Component {
   }
 
   componentWillUnmount() {
-    this.unregisterAuthObserver();
+    if (this.unregisterAuthObserver) {
+      this.unregisterAuthObserver();
+    }
   }
 
   render() {

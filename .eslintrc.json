@@ -1,12 +1,10 @@
 {
-  "env": {
-    "browser": true
-  },
   "extends": [
+    "react-app",
     "airbnb"
   ],
-  "parser": "babel-eslint",
   "rules": {
+    "react/jsx-filename-extension": "off",
     "sort-keys": [
       "error",
       "asc",
@@ -15,12 +13,5 @@
         "natural": true
       }
     ]
-  },
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "webpack.config.js"
-      }
-    }
   }
 }
