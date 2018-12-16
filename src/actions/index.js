@@ -2,7 +2,7 @@
 
 import type { Dispatch } from 'redux';
 
-import type { FirebaseApp } from '../lib/FirebaseApp';
+import type { FirebaseApp } from '../lib/firebaseApp';
 import * as T from './types';
 
 export type Action =

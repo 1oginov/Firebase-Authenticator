@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import type { FirebaseApp } from '../../lib/FirebaseApp';
+import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type Props = {
   app: FirebaseApp,

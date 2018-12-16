@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import FirebaseAppsList from '../../components/FirebaseAppsList';
-import type { FirebaseApp } from '../../lib/FirebaseApp';
+import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type Props = {
   apps: Array<FirebaseApp>,

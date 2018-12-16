@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import CreateFirebaseAppForm from '../../components/CreateFirebaseAppForm';
-import type { FirebaseApp } from '../../lib/FirebaseApp';
+import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type Props = {
   handleBackClick: () => void,

@@ -5,7 +5,7 @@ import {
 } from 'recompose';
 import uuidv1 from 'uuid/v1';
 
-import type { FirebaseApp } from '../../lib/FirebaseApp';
+import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type EnhancedComponentProps = {
   onSubmit: FirebaseApp => void,
