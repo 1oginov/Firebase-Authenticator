@@ -1,7 +1,28 @@
 // @flow
 
 import { connect } from 'react-redux';
+import { compose, lifecycle, type HOC } from 'recompose';
 
-const mapStateToProps = ({ route }) => ({ route });
+import { navigate as navigateCreator } from '../../actions';
+import * as R from '../../routes';
 
-export default connect(mapStateToProps);
+const mapStateToProps = ({ currentFirebaseApp, route }) => ({ currentFirebaseApp, route });
+
+const mapDispatchToProps = { navigate: navigateCreator };
+
+const enhancer: HOC<*, {}> = compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  lifecycle({
+
+    componentDidMount() {
+      const { currentFirebaseApp, navigate } = this.props;
+
+      if (currentFirebaseApp) {
+        navigate(R.FIREBASE_APP);
+      }
+    },
+
+  }),
+);
+
+export default enhancer;

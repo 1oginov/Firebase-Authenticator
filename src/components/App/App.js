@@ -4,7 +4,8 @@ import * as React from 'react';
 
 import * as R from '../../routes';
 import CreateFirebaseApp from '../../views/CreateFirebaseApp';
-import FirebaseApps from '../../views/FirebaseApps';
+import FirebaseApp from '../../views/FirebaseApp';
+import Home from '../../views/Home';
 
 type Props = {
   route: string,
@@ -15,8 +16,11 @@ const App = ({ route }: Props) => {
     case R.CREATE_FIREBASE_APP:
       return <CreateFirebaseApp />;
 
+    case R.FIREBASE_APP:
+      return <FirebaseApp />;
+
     default:
-      return <FirebaseApps />;
+      return <Home />;
   }
 };
 

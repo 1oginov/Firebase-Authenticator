@@ -6,18 +6,20 @@ import type { FirebaseApp } from '../lib/FirebaseApp';
 import * as R from '../routes';
 
 export type State = {
+  currentFirebaseApp: string,
   firebaseApps: { [string]: FirebaseApp },
   route: string,
   routeParams: Object,
-  selectedFirebaseApp: string,
 };
 
 const initialState = {
+  currentFirebaseApp: '',
   firebaseApps: {},
-  route: R.FIREBASE_APPS,
+  route: R.HOME,
   routeParams: {},
-  selectedFirebaseApp: '',
 };
+
+export const persistedPaths = ['currentFirebaseApp', 'firebaseApps'];
 
 export default (state: State = initialState, action: Action): State => {
   switch (action.type) {
@@ -42,16 +44,16 @@ export default (state: State = initialState, action: Action): State => {
 
       return {
         ...state,
+        currentFirebaseApp: (action.payload === state.currentFirebaseApp
+          ? '' : state.currentFirebaseApp),
         firebaseApps,
-        selectedFirebaseApp: (action.payload === state.selectedFirebaseApp
-          ? '' : state.selectedFirebaseApp),
       };
     }
 
     case T.FIREBASE_APP_SELECTED:
       return {
         ...state,
-        selectedFirebaseApp: action.payload,
+        currentFirebaseApp: action.payload,
       };
 
     default:

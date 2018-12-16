@@ -7,17 +7,17 @@ import type { FirebaseApp } from '../../lib/FirebaseApp';
 
 type Props = {
   apps: Array<FirebaseApp>,
-  handleCreateAppClick: () => void,
+  handleCreateFirebaseAppClick: () => void,
   onSelect: string => void,
 };
 
-const FirebaseApps = ({ apps, handleCreateAppClick, onSelect }: Props) => (
+const Home = ({ apps, handleCreateFirebaseAppClick, onSelect }: Props) => (
   <React.Fragment>
 
-    <h1>Firebase apps</h1>
+    <h1>Home</h1>
 
     <div>
-      <button onClick={handleCreateAppClick} type="button">Create</button>
+      <button onClick={handleCreateFirebaseAppClick} type="button">Create Firebase app</button>
     </div>
 
     <FirebaseAppsList apps={apps} onSelect={onSelect} />
@@ -25,4 +25,4 @@ const FirebaseApps = ({ apps, handleCreateAppClick, onSelect }: Props) => (
   </React.Fragment>
 );
 
-export default FirebaseApps;
+export default Home;
