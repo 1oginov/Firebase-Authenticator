@@ -12,6 +12,11 @@ export type FirebaseApp = {
     storageBucket: string,
   },
   id: string,
+  redirect: {
+    refreshTokenPlaceholder: string,
+    url: string,
+  },
+  signInOptions: Array<'email' | 'github' | 'google'>,
   title: string,
 };
 
@@ -23,7 +28,7 @@ export const createShareLink = (app: FirebaseApp) => {
   return url.toString();
 };
 
-export const parseShareLink = (link: string): FirebaseApp => {
+export const parseShareLink = (link: string): ?FirebaseApp => {
   const url = new URL(link);
   const param = url.searchParams.get(C.FIREBASE_APP_SHARE_QUERY_PARAMETER);
 

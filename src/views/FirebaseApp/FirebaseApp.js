@@ -14,37 +14,38 @@ type Props = {
 };
 
 type State = {
-  firebaseApp: ?Object,
+  appInstance: ?Object,
 };
 
 export default class FirebaseApp extends React.Component<Props, State> {
   state = {
-    firebaseApp: undefined,
+    appInstance: undefined,
   };
 
   componentDidMount() {
     const { app } = this.props;
-
-    const firebaseApp = firebase.initializeApp(app.config);
+    const appInstance = firebase.initializeApp(app.config);
 
     console.log('Firebase app initialized', app.config);
 
-    this.setState({ firebaseApp });
+    this.setState({ appInstance });
   }
 
   componentWillUnmount() {
     const { app } = this.props;
-    const { firebaseApp } = this.state;
+    const { appInstance } = this.state;
 
-    firebaseApp.delete()
-      .then(() => console.log('Firebase app deleted', app.config));
+    if (appInstance) {
+      appInstance.delete()
+        .then(() => console.log('Firebase app deleted', app.config));
+    }
   }
 
   render() {
     const {
       app, handleBackClick, handleDeleteClick, handleShareClick,
     } = this.props;
-    const { firebaseApp } = this.state;
+    const { appInstance } = this.state;
 
     return (
       <React.Fragment>
@@ -61,8 +62,8 @@ export default class FirebaseApp extends React.Component<Props, State> {
           {JSON.stringify(app)}
         </div>
 
-        {firebaseApp
-          ? <FirebaseAuth firebaseApp={firebaseApp} />
+        {appInstance
+          ? <FirebaseAuth appInstance={appInstance} signInOptions={app.signInOptions} />
           : <div>Initializing Firebase app...</div>}
 
       </React.Fragment>

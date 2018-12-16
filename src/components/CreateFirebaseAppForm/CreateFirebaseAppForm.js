@@ -6,69 +6,131 @@ type Props = {
   apiKey: string,
   authDomain: string,
   databaseUrl: string,
-  handleApiKeyChange: () => void,
-  handleAuthDomainChange: () => void,
-  handleDatabaseUrlChange: () => void,
-  handleMessagingSenderIdChange: () => void,
-  handleProjectIdChange: () => void,
-  handleStorageBucketChange: () => void,
+  handleInputChange: () => void,
   handleSubmit: () => void,
-  handleTitleChange: () => void,
   messagingSenderId: string,
   projectId: string,
+  redirectRefreshTokenPlaceholder: string,
+  redirectUrl: string,
+  signInOptionEmail: boolean,
+  signInOptionGithub: boolean,
+  signInOptionGoogle: boolean,
   storageBucket: string,
   title: string,
 };
 
 const CreateFirebaseAppForm = ({
-  apiKey, authDomain, databaseUrl, handleApiKeyChange, handleAuthDomainChange,
-  handleDatabaseUrlChange, handleMessagingSenderIdChange, handleProjectIdChange,
-  handleStorageBucketChange, handleSubmit, handleTitleChange, messagingSenderId, projectId,
-  storageBucket, title,
+  apiKey, authDomain, databaseUrl, handleInputChange, handleSubmit, messagingSenderId, projectId,
+  redirectRefreshTokenPlaceholder, redirectUrl, signInOptionEmail, signInOptionGithub,
+  signInOptionGoogle, storageBucket, title,
 }: Props) => (
   <form onSubmit={handleSubmit}>
 
     <div>
       Title
       <br />
-      <input onChange={handleTitleChange} value={title} />
+      <input name="title" onChange={handleInputChange} value={title} />
     </div>
 
-    <div>
-      API key
-      <br />
-      <input onChange={handleApiKeyChange} value={apiKey} />
-    </div>
+    <fieldset>
 
-    <div>
-      Auth domain
-      <br />
-      <input onChange={handleAuthDomainChange} value={authDomain} />
-    </div>
+      <legend>Configuration</legend>
 
-    <div>
-      Database URL
-      <br />
-      <input onChange={handleDatabaseUrlChange} value={databaseUrl} />
-    </div>
+      <div>
+        API key
+        <br />
+        <input name="apiKey" onChange={handleInputChange} value={apiKey} />
+      </div>
 
-    <div>
-      Messaging sender ID
-      <br />
-      <input onChange={handleMessagingSenderIdChange} value={messagingSenderId} />
-    </div>
+      <div>
+        Auth domain
+        <br />
+        <input name="authDomain" onChange={handleInputChange} value={authDomain} />
+      </div>
 
-    <div>
-      Project ID
-      <br />
-      <input onChange={handleProjectIdChange} value={projectId} />
-    </div>
+      <div>
+        Database URL
+        <br />
+        <input name="databaseUrl" onChange={handleInputChange} value={databaseUrl} />
+      </div>
 
-    <div>
-      Storage bucket
-      <br />
-      <input onChange={handleStorageBucketChange} value={storageBucket} />
-    </div>
+      <div>
+        Messaging sender ID
+        <br />
+        <input name="messagingSenderId" onChange={handleInputChange} value={messagingSenderId} />
+      </div>
+
+      <div>
+        Project ID
+        <br />
+        <input name="projectId" onChange={handleInputChange} value={projectId} />
+      </div>
+
+      <div>
+        Storage bucket
+        <br />
+        <input name="storageBucket" onChange={handleInputChange} value={storageBucket} />
+      </div>
+
+    </fieldset>
+
+    <fieldset>
+
+      <legend>Redirect</legend>
+
+      <div>
+        URL
+        <br />
+        <input name="redirectUrl" onChange={handleInputChange} value={redirectUrl} />
+      </div>
+
+      <div>
+        Refresh token placeholder
+        <br />
+        <input
+          name="redirectRefreshTokenPlaceholder"
+          onChange={handleInputChange}
+          value={redirectRefreshTokenPlaceholder}
+        />
+      </div>
+
+    </fieldset>
+
+    <fieldset>
+
+      <legend>Sign in options</legend>
+
+      <label>
+        <input
+          checked={signInOptionEmail}
+          name="signInOptionEmail"
+          onChange={handleInputChange}
+          type="checkbox"
+        />
+        Email
+      </label>
+
+      <label>
+        <input
+          checked={signInOptionGithub}
+          name="signInOptionGithub"
+          onChange={handleInputChange}
+          type="checkbox"
+        />
+        GitHub
+      </label>
+
+      <label>
+        <input
+          checked={signInOptionGoogle}
+          name="signInOptionGoogle"
+          onChange={handleInputChange}
+          type="checkbox"
+        />
+        Google
+      </label>
+
+    </fieldset>
 
     <div>
       <button type="submit">Create</button>

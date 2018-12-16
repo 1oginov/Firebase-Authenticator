@@ -19,23 +19,32 @@ const enhancer: HOC<*, EnhancedComponentProps> = compose(
       databaseUrl: '',
       messagingSenderId: '',
       projectId: '',
+      redirectRefreshTokenPlaceholder: '%refreshToken%',
+      redirectUrl: '',
+      signInOptionEmail: false,
+      signInOptionGithub: false,
+      signInOptionGoogle: false,
       storageBucket: '',
       title: '',
     },
     {
-      handleApiKeyChange: () => event => ({ apiKey: event.target.value }),
-      handleAuthDomainChange: () => event => ({ authDomain: event.target.value }),
-      handleDatabaseUrlChange: () => event => ({ databaseUrl: event.target.value }),
-      handleMessagingSenderIdChange: () => event => ({ messagingSenderId: event.target.value }),
-      handleProjectIdChange: () => event => ({ projectId: event.target.value }),
-      handleStorageBucketChange: () => event => ({ storageBucket: event.target.value }),
-      handleTitleChange: () => event => ({ title: event.target.value }),
+      handleInputChange: () => (event) => {
+        const {
+          target: {
+            checked, name, type, value,
+          },
+        } = event;
+
+        return { [name]: type === 'checkbox' ? checked : value };
+      },
     },
   ),
   withHandlers({
 
     handleSubmit: ({
-      apiKey, authDomain, databaseUrl, messagingSenderId, onSubmit, projectId, storageBucket, title,
+      apiKey, authDomain, databaseUrl, messagingSenderId, onSubmit, projectId,
+      redirectRefreshTokenPlaceholder, redirectUrl, signInOptionEmail, signInOptionGithub,
+      signInOptionGoogle, storageBucket, title,
     }) => (event) => {
       event.preventDefault();
 
@@ -49,6 +58,16 @@ const enhancer: HOC<*, EnhancedComponentProps> = compose(
           storageBucket,
         },
         id: uuidv1(),
+        redirect: {
+          refreshTokenPlaceholder: redirectRefreshTokenPlaceholder,
+          url: redirectUrl,
+        },
+        signInOptions: [
+          // Such shorthand used to avoid Flow errors.
+          ...(signInOptionEmail ? ['email'] : []),
+          ...(signInOptionGithub ? ['github'] : []),
+          ...(signInOptionGoogle ? ['google'] : []),
+        ],
         title,
       });
     },
