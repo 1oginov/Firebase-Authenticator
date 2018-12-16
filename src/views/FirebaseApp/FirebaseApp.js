@@ -12,6 +12,7 @@ type Props = {
   handleBackClick: () => void,
   handleDeleteClick: () => void,
   handleShareClick: () => void,
+  handleUpdateClick: () => void,
 };
 
 type State = {
@@ -79,7 +80,7 @@ export default class FirebaseApp extends React.Component<Props, State> {
 
   render() {
     const {
-      app, handleBackClick, handleDeleteClick, handleShareClick,
+      app, handleBackClick, handleDeleteClick, handleShareClick, handleUpdateClick,
     } = this.props;
 
     return (
@@ -89,6 +90,7 @@ export default class FirebaseApp extends React.Component<Props, State> {
 
         <div>
           <button onClick={handleBackClick} type="button">Back</button>
+          <button onClick={handleUpdateClick} type="button">Update</button>
           <button onClick={handleShareClick} type="button">Share</button>
         </div>
 

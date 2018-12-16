@@ -8,6 +8,7 @@ import * as T from './types';
 export type Action =
   | { type: typeof T.NAVIGATE, payload: { route: string, params: ?Object } }
   | { type: typeof T.FIREBASE_APP_CREATED, payload: FirebaseApp }
+  | { type: typeof T.FIREBASE_APP_UPDATED, payload: FirebaseApp }
   | { type: typeof T.FIREBASE_APP_DELETED, payload: string }
   | { type: typeof T.FIREBASE_APP_SELECTED, payload: string };
 
@@ -22,6 +23,16 @@ export const createFirebaseApp = (app: FirebaseApp) => (dispatch: Dispatch<Actio
   dispatch({
     payload: app,
     type: T.FIREBASE_APP_CREATED,
+  });
+};
+
+export const updateFirebaseApp = (id: string, app: FirebaseApp) => (dispatch: Dispatch<Action>) => {
+  dispatch({
+    payload: {
+      ...app,
+      id,
+    },
+    type: T.FIREBASE_APP_UPDATED,
   });
 };
 

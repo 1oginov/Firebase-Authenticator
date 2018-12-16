@@ -6,22 +6,23 @@ import FirebaseAppForm from '../../components/FirebaseAppForm';
 import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type Props = {
+  app: FirebaseApp,
   handleBackClick: () => void,
   onSubmit: FirebaseApp => void,
 };
 
-const CreateFirebaseApp = ({ handleBackClick, onSubmit }: Props) => (
+const UpdateFirebaseApp = ({ app, handleBackClick, onSubmit }: Props) => (
   <React.Fragment>
 
-    <h1>Create Firebase app</h1>
+    <h1>Update Firebase app</h1>
 
     <div>
       <button onClick={handleBackClick} type="button">Back</button>
     </div>
 
-    <FirebaseAppForm buttonTitle="Create" onSubmit={onSubmit} />
+    <FirebaseAppForm buttonTitle="Update" initial={app} onSubmit={onSubmit} />
 
   </React.Fragment>
 );
 
-export default CreateFirebaseApp;
+export default UpdateFirebaseApp;

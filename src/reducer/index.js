@@ -31,6 +31,7 @@ export default (state: State = initialState, action: Action): State => {
       };
 
     case T.FIREBASE_APP_CREATED:
+    case T.FIREBASE_APP_UPDATED:
       return {
         ...state,
         firebaseApps: {

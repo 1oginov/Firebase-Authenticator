@@ -3,32 +3,26 @@
 import { connect } from 'react-redux';
 import { compose, withHandlers, type HOC } from 'recompose';
 
-import { deleteFirebaseApp as deleteFirebaseAppCreator } from '../../actions';
+import { updateFirebaseApp as updateFirebaseAppCreator } from '../../actions';
 import withNavigationHandlers from '../../enhancers/withNavigationHandlers';
-import { createShareLink } from '../../lib/firebaseApp';
 import * as R from '../../routes';
 
 const mapStateToProps = ({ currentFirebaseApp, firebaseApps }) => ({
   app: firebaseApps[currentFirebaseApp],
 });
 
-const mapDispatchToProps = { deleteFirebaseApp: deleteFirebaseAppCreator };
+const mapDispatchToProps = { updateFirebaseApp: updateFirebaseAppCreator };
 
 const enhancer: HOC<*, {}> = compose(
   withNavigationHandlers({
-    handleBackClick: R.HOME,
-    handleUpdateClick: R.UPDATE_FIREBASE_APP,
+    handleBackClick: R.FIREBASE_APP,
   }),
   connect(mapStateToProps, mapDispatchToProps),
   withHandlers({
 
-    handleDeleteClick: ({ app, deleteFirebaseApp, handleBackClick }) => () => {
+    onSubmit: ({ app, handleBackClick, updateFirebaseApp }) => (updatedApp) => {
+      updateFirebaseApp(app.id, updatedApp);
       handleBackClick();
-      deleteFirebaseApp(app.id);
-    },
-
-    handleShareClick: ({ app }) => () => {
-      prompt('Share this link:', createShareLink(app));
     },
 
   }),

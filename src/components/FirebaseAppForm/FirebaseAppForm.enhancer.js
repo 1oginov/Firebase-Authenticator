@@ -8,25 +8,28 @@ import uuidv1 from 'uuid/v1';
 import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type EnhancedComponentProps = {
+  buttonTitle: string,
+  initial?: FirebaseApp,
   onSubmit: FirebaseApp => void,
 };
 
 const enhancer: HOC<*, EnhancedComponentProps> = compose(
   withStateHandlers(
-    {
-      apiKey: '',
-      authDomain: '',
-      databaseUrl: '',
-      messagingSenderId: '',
-      projectId: '',
-      redirectRefreshTokenPlaceholder: '%refreshToken%',
-      redirectUrl: '',
-      signInOptionEmail: false,
-      signInOptionGithub: false,
-      signInOptionGoogle: false,
-      storageBucket: '',
-      title: '',
-    },
+    ({ initial }) => ({
+      apiKey: (initial && initial.config.apiKey) || '',
+      authDomain: (initial && initial.config.authDomain) || '',
+      databaseUrl: (initial && initial.config.databaseURL) || '',
+      messagingSenderId: (initial && initial.config.messagingSenderId) || '',
+      projectId: (initial && initial.config.projectId) || '',
+      redirectRefreshTokenPlaceholder: ((initial && initial.redirect.refreshTokenPlaceholder)
+        || '%refreshToken%'),
+      redirectUrl: (initial && initial.redirect.url) || '',
+      signInOptionEmail: (initial ? initial.signInOptions.indexOf('email') >= 0 : false),
+      signInOptionGithub: (initial ? initial.signInOptions.indexOf('github') >= 0 : false),
+      signInOptionGoogle: (initial ? initial.signInOptions.indexOf('google') >= 0 : false),
+      storageBucket: (initial && initial.config.storageBucket) || '',
+      title: (initial && initial.title) || '',
+    }),
     {
       handleInputChange: () => (event) => {
         const {

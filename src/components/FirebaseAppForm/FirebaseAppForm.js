@@ -5,6 +5,7 @@ import * as React from 'react';
 type Props = {
   apiKey: string,
   authDomain: string,
+  buttonTitle: string,
   databaseUrl: string,
   handleInputChange: () => void,
   handleSubmit: () => void,
@@ -19,9 +20,9 @@ type Props = {
   title: string,
 };
 
-const CreateFirebaseAppForm = ({
-  apiKey, authDomain, databaseUrl, handleInputChange, handleSubmit, messagingSenderId, projectId,
-  redirectRefreshTokenPlaceholder, redirectUrl, signInOptionEmail, signInOptionGithub,
+const FirebaseAppForm = ({
+  apiKey, authDomain, buttonTitle, databaseUrl, handleInputChange, handleSubmit, messagingSenderId,
+  projectId, redirectRefreshTokenPlaceholder, redirectUrl, signInOptionEmail, signInOptionGithub,
   signInOptionGoogle, storageBucket, title,
 }: Props) => (
   <form onSubmit={handleSubmit}>
@@ -133,10 +134,10 @@ const CreateFirebaseAppForm = ({
     </fieldset>
 
     <div>
-      <button type="submit">Create</button>
+      <button type="submit">{buttonTitle}</button>
     </div>
 
   </form>
 );
 
-export default CreateFirebaseAppForm;
+export default FirebaseAppForm;
