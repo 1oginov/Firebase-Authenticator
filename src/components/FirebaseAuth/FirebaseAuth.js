@@ -4,23 +4,24 @@ import firebase from 'firebase';
 import * as React from 'react';
 import FirebaseUi from 'react-firebaseui/FirebaseAuth';
 
-type Props = {};
+type Props = {
+  firebaseApp: Object,
+};
 
-export default class Guest extends React.Component<Props> {
-  uiConfig = {
+const FirebaseAuth = ({ firebaseApp }: Props) => {
+  const uiConfig = {
     callbacks: {
       signInSuccessWithAuthResult: () => false,
     },
     signInOptions: [
+      // TODO: Make this options configurable in the FirebaseApp objects.
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.GithubAuthProvider.PROVIDER_ID,
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
   };
 
-  render() {
-    return (
-      <FirebaseUi firebaseAuth={firebase.auth()} uiConfig={this.uiConfig} />
-    );
-  }
-}
+  return <FirebaseUi firebaseAuth={firebaseApp.auth()} uiConfig={uiConfig} />;
+};
+
+export default FirebaseAuth;
