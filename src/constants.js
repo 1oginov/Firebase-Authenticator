@@ -1,9 +1,4 @@
 // @flow
 
+// eslint-disable-next-line import/prefer-default-export
 export const FIREBASE_APP_SHARE_QUERY_PARAMETER = 'firebase-app';
-
-export const REDIRECT_QUERY_PARAMETER = process.env.REACT_APP_REDIRECT_QUERY_PARAMETER || '';
-
-export const REDIRECT_REFRESH_TOKEN_PLACEHOLDER: string = (
-  process.env.REACT_APP_REDIRECT_REFRESH_TOKEN_PLACEHOLDER || ''
-);
