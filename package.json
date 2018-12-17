@@ -4,7 +4,8 @@
   "description": "Firebase Authenticator",
   "scripts": {
     "build": "react-scripts build",
-    "build:release": "npm run lint && npm run flow && cross-env CI=true npm test && npm run build && rimraf docs && cpx \"build/**\" docs",
+    "build:release": "npm run check && rimraf docs && cpx \"build/**\" docs",
+    "check": "npm run lint && npm run flow && cross-env CI=true npm test && npm run build",
     "coveralls": "npm run test:coverage && cat ./coverage/lcov.info | coveralls",
     "flow": "flow",
     "lint": "eslint src",
@@ -21,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/1oginov/Firebase-Authenticator/issues"
   },
-  "homepage": "https://github.com/1oginov/Firebase-Authenticator",
+  "homepage": "./",
   "dependencies": {
     "firebase": "^5.7.0",
     "react": "^16.6.3",
