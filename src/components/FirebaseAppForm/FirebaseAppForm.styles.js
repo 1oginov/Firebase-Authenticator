@@ -6,6 +6,9 @@ const styles = (theme: Theme) => ({
   buttonContainer: {
     textAlign: 'center',
   },
+  buttonIcon: {
+    marginRight: theme.spacing.unit,
+  },
   paper: {
     marginBottom: 3 * theme.spacing.unit,
     padding: 3 * theme.spacing.unit,

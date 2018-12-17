@@ -3,6 +3,7 @@
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import SaveIcon from '@material-ui/icons/Save';
 import * as React from 'react';
 
 import Bar from '../../components/Bar';
@@ -28,7 +29,8 @@ const UpdateFirebaseApp = ({
 
       <FirebaseAppForm
         className={classes.form}
-        buttonTitle="Update"
+        buttonIcon={iconClass => <SaveIcon className={iconClass} />}
+        buttonTitle="Save changes"
         initial={app}
         onSubmit={onSubmit}
       />

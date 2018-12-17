@@ -1,5 +1,6 @@
 // @flow
 
+import * as React from 'react';
 import {
   compose, withHandlers, withStateHandlers, type HOC,
 } from 'recompose';
@@ -8,6 +9,7 @@ import uuidv1 from 'uuid/v1';
 import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type EnhancedComponentProps = {
+  buttonIcon: (string) => React.Node,
   buttonTitle: string,
   classes: { [string]: string },
   className: string,

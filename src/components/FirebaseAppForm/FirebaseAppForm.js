@@ -1,6 +1,6 @@
 // @flow
 
-import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Paper from '@material-ui/core/Paper';
@@ -12,6 +12,7 @@ import * as React from 'react';
 type Props = {
   apiKey: string,
   authDomain: string,
+  buttonIcon: (string) => React.Node,
   buttonTitle: string,
   classes: { [string]: string },
   className: string,
@@ -30,9 +31,9 @@ type Props = {
 };
 
 const FirebaseAppForm = ({
-  apiKey, authDomain, buttonTitle, classes, className, databaseUrl, handleInputChange, handleSubmit,
-  messagingSenderId, projectId, redirectRefreshTokenPlaceholder, redirectUrl, signInOptionEmail,
-  signInOptionGithub, signInOptionGoogle, storageBucket, title,
+  apiKey, authDomain, buttonIcon, buttonTitle, classes, className, databaseUrl, handleInputChange,
+  handleSubmit, messagingSenderId, projectId, redirectRefreshTokenPlaceholder, redirectUrl,
+  signInOptionEmail, signInOptionGithub, signInOptionGoogle, storageBucket, title,
 }: Props) => (
   <form className={[classes.root, className].join(' ')} onSubmit={handleSubmit}>
 
@@ -190,7 +191,10 @@ const FirebaseAppForm = ({
     </Paper>
 
     <div className={classes.buttonContainer}>
-      <Button color="primary" type="submit" variant="contained">{buttonTitle}</Button>
+      <Fab color="primary" type="submit" variant="extended">
+        {buttonIcon(classes.buttonIcon)}
+        {buttonTitle}
+      </Fab>
     </div>
 
   </form>
