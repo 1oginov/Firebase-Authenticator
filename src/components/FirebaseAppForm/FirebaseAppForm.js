@@ -101,35 +101,44 @@ const FirebaseAppForm = ({
 
       <legend>Sign in options</legend>
 
-      <label>
-        <input
-          checked={signInOptionEmail}
-          name="signInOptionEmail"
-          onChange={handleInputChange}
-          type="checkbox"
-        />
-        Email
-      </label>
+      <div>
+        <label htmlFor="signInOptionEmail">
+          <input
+            checked={signInOptionEmail}
+            id="signInOptionEmail"
+            name="signInOptionEmail"
+            onChange={handleInputChange}
+            type="checkbox"
+          />
+          Email
+        </label>
+      </div>
 
-      <label>
-        <input
-          checked={signInOptionGithub}
-          name="signInOptionGithub"
-          onChange={handleInputChange}
-          type="checkbox"
-        />
-        GitHub
-      </label>
+      <div>
+        <label htmlFor="signInOptionGithub">
+          <input
+            checked={signInOptionGithub}
+            id="signInOptionGithub"
+            name="signInOptionGithub"
+            onChange={handleInputChange}
+            type="checkbox"
+          />
+          GitHub
+        </label>
+      </div>
 
-      <label>
-        <input
-          checked={signInOptionGoogle}
-          name="signInOptionGoogle"
-          onChange={handleInputChange}
-          type="checkbox"
-        />
-        Google
-      </label>
+      <div>
+        <label htmlFor="signInOptionGoogle">
+          <input
+            checked={signInOptionGoogle}
+            id="signInOptionGoogle"
+            name="signInOptionGoogle"
+            onChange={handleInputChange}
+            type="checkbox"
+          />
+          Google
+        </label>
+      </div>
 
     </fieldset>
 

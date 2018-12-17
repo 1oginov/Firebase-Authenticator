@@ -4,6 +4,7 @@
   "description": "Firebase Authenticator",
   "scripts": {
     "build": "react-scripts build",
+    "build:release": "npm run lint && npm run flow && cross-env CI=true npm test && npm run build && rimraf docs && cpx \"build/**\" docs",
     "coveralls": "npm run test:coverage && cat ./coverage/lcov.info | coveralls",
     "flow": "flow",
     "lint": "eslint src",
@@ -36,12 +37,15 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
+    "cpx": "^1.5.0",
+    "cross-env": "^5.2.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint-config-airbnb": "^17.1.0",
     "flow-bin": "^0.89.0",
     "jest": "^23.6.0",
-    "react-test-renderer": "^16.6.3"
+    "react-test-renderer": "^16.6.3",
+    "rimraf": "^2.6.2"
   },
   "browserslist": [
     ">0.2%",
