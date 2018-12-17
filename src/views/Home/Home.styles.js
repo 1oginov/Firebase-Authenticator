@@ -14,6 +14,10 @@ const styles = (theme: Theme) => ({
   firebaseAppsList: {
     marginBottom: 3 * theme.spacing.unit,
   },
+  logo: {
+    marginBottom: 5 * theme.spacing.unit,
+    marginTop: 2 * theme.spacing.unit,
+  },
   root: wrapView(theme),
 });
 

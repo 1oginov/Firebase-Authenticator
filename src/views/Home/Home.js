@@ -5,6 +5,7 @@ import Fab from '@material-ui/core/Fab';
 import * as React from 'react';
 
 import FirebaseAppsList from '../../components/FirebaseAppsList';
+import Logo from '../../components/Logo';
 import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type Props = {
@@ -18,6 +19,8 @@ const Home = ({
   apps, classes, handleCreateFirebaseAppClick, onSelect,
 }: Props) => (
   <div className={classes.root}>
+
+    <Logo className={classes.logo} />
 
     <FirebaseAppsList apps={apps} className={classes.firebaseAppsList} onSelect={onSelect} />
 
