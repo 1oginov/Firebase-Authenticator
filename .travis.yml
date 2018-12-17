@@ -3,9 +3,13 @@ node_js:
 - "node"
 jobs:
   include:
-  - script: npm run lint
-  - script: npm run flow
-  - script: npm test
-  - script: npm run build
+  - stage: Lint
+    script: npm run lint
+  - stage: Flow
+    script: npm run flow
+  - stage: Test
+    script: npm test
+  - stage: Build
+    script: npm run build
 after_success:
 - npm run coveralls
