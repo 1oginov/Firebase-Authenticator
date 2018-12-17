@@ -1,5 +1,8 @@
 // @flow
 
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import * as React from 'react';
 
 import Bar from '../../components/Bar';
@@ -22,16 +25,28 @@ const UpdateFirebaseApp = ({
     <Bar navigationClick={handleBackClick} title="Update Firebase app" />
 
     <div className={classes.root}>
+
       <FirebaseAppForm
         className={classes.form}
         buttonTitle="Update"
         initial={app}
         onSubmit={onSubmit}
       />
-    </div>
 
-    <div>
-      <button onClick={handleDeleteClick} type="button">Delete</button>
+      <div>
+        <Divider className={classes.deleteDivider} />
+        <div className={classes.deleteContainer}>
+          <Button
+            className={classes.deleteButton}
+            onClick={handleDeleteClick}
+            variant="outlined"
+          >
+            Delete
+          </Button>
+          <Typography>This action cannot be undone!</Typography>
+        </div>
+      </div>
+
     </div>
 
   </React.Fragment>
