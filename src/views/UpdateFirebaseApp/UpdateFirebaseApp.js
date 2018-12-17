@@ -2,25 +2,32 @@
 
 import * as React from 'react';
 
+import Bar from '../../components/Bar';
 import FirebaseAppForm from '../../components/FirebaseAppForm';
 import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type Props = {
   app: FirebaseApp,
+  classes: { [string]: string },
   handleBackClick: () => void,
+  handleDeleteClick: () => void,
   onSubmit: FirebaseApp => void,
 };
 
-const UpdateFirebaseApp = ({ app, handleBackClick, onSubmit }: Props) => (
+const UpdateFirebaseApp = ({
+  app, classes, handleBackClick, handleDeleteClick, onSubmit,
+}: Props) => (
   <React.Fragment>
 
-    <h1>Update Firebase app</h1>
+    <Bar navigationClick={handleBackClick} title="Update Firebase app" />
 
-    <div>
-      <button onClick={handleBackClick} type="button">Back</button>
+    <div className={classes.root}>
+      <FirebaseAppForm buttonTitle="Update" initial={app} onSubmit={onSubmit} />
     </div>
 
-    <FirebaseAppForm buttonTitle="Update" initial={app} onSubmit={onSubmit} />
+    <div>
+      <button onClick={handleDeleteClick} type="button">Delete</button>
+    </div>
 
   </React.Fragment>
 );

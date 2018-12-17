@@ -2,24 +2,24 @@
 
 import * as React from 'react';
 
+import Bar from '../../components/Bar';
 import FirebaseAppForm from '../../components/FirebaseAppForm';
 import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type Props = {
+  classes: { [string]: string },
   handleBackClick: () => void,
   onSubmit: FirebaseApp => void,
 };
 
-const CreateFirebaseApp = ({ handleBackClick, onSubmit }: Props) => (
+const CreateFirebaseApp = ({ classes, handleBackClick, onSubmit }: Props) => (
   <React.Fragment>
 
-    <h1>Create Firebase app</h1>
+    <Bar navigationClick={handleBackClick} title="Create Firebase app" />
 
-    <div>
-      <button onClick={handleBackClick} type="button">Back</button>
+    <div className={classes.root}>
+      <FirebaseAppForm buttonTitle="Create" onSubmit={onSubmit} />
     </div>
-
-    <FirebaseAppForm buttonTitle="Create" onSubmit={onSubmit} />
 
   </React.Fragment>
 );

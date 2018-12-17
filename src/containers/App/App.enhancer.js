@@ -13,7 +13,7 @@ import {
 } from '../../actions';
 import * as R from '../../routes';
 import { parseShareLink } from '../../lib/firebaseApp';
-import theme from '../../style/theme';
+import themeOptions from '../../style/themeOptions';
 
 const mapStateToProps = ({ currentFirebaseApp, firebaseApps, route }) => ({
   currentFirebaseApp, firebaseApps, route,
@@ -27,7 +27,7 @@ const mapDispatchToProps = {
 
 const enhancer: HOC<*, {}> = compose(
   withProps(() => ({
-    theme: createMuiTheme(theme),
+    theme: createMuiTheme(themeOptions),
   })),
   connect(mapStateToProps, mapDispatchToProps),
   lifecycle({
