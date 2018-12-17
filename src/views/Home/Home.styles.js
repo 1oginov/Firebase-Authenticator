@@ -6,6 +6,7 @@ import wrapView from '../../style/wrapView';
 
 const styles = (theme: Theme) => ({
   fabContainer: {
+    marginBottom: 3 * theme.spacing.unit,
     textAlign: 'center',
   },
   fabIcon: {

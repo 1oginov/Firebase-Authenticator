@@ -4,6 +4,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import * as React from 'react';
 
+import Disclaimer from '../../components/Disclaimer';
 import FirebaseAppsList from '../../components/FirebaseAppsList';
 import Logo from '../../components/Logo';
 import type { FirebaseApp } from '../../lib/firebaseApp';
@@ -25,11 +26,13 @@ const Home = ({
     <FirebaseAppsList apps={apps} className={classes.firebaseAppsList} onSelect={onSelect} />
 
     <div className={classes.fabContainer}>
-      <Fab onClick={handleCreateFirebaseAppClick} variant="extended">
+      <Fab color="secondary" onClick={handleCreateFirebaseAppClick} variant="extended">
         <AddIcon className={classes.fabIcon} />
         Create Firebase app
       </Fab>
     </div>
+
+    <Disclaimer />
 
   </div>
 );
