@@ -22,7 +22,12 @@ const UpdateFirebaseApp = ({
     <Bar navigationClick={handleBackClick} title="Update Firebase app" />
 
     <div className={classes.root}>
-      <FirebaseAppForm buttonTitle="Update" initial={app} onSubmit={onSubmit} />
+      <FirebaseAppForm
+        className={classes.form}
+        buttonTitle="Update"
+        initial={app}
+        onSubmit={onSubmit}
+      />
     </div>
 
     <div>

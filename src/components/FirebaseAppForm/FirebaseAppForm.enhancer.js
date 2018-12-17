@@ -9,6 +9,8 @@ import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type EnhancedComponentProps = {
   buttonTitle: string,
+  classes: { [string]: string },
+  className: string,
   initial?: FirebaseApp,
   onSubmit: FirebaseApp => void,
 };

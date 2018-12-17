@@ -1,11 +1,20 @@
 // @flow
 
+import Button from '@material-ui/core/Button';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Paper from '@material-ui/core/Paper';
+import Switch from '@material-ui/core/Switch';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import * as React from 'react';
 
 type Props = {
   apiKey: string,
   authDomain: string,
   buttonTitle: string,
+  classes: { [string]: string },
+  className: string,
   databaseUrl: string,
   handleInputChange: () => void,
   handleSubmit: () => void,
@@ -21,129 +30,167 @@ type Props = {
 };
 
 const FirebaseAppForm = ({
-  apiKey, authDomain, buttonTitle, databaseUrl, handleInputChange, handleSubmit, messagingSenderId,
-  projectId, redirectRefreshTokenPlaceholder, redirectUrl, signInOptionEmail, signInOptionGithub,
-  signInOptionGoogle, storageBucket, title,
+  apiKey, authDomain, buttonTitle, classes, className, databaseUrl, handleInputChange, handleSubmit,
+  messagingSenderId, projectId, redirectRefreshTokenPlaceholder, redirectUrl, signInOptionEmail,
+  signInOptionGithub, signInOptionGoogle, storageBucket, title,
 }: Props) => (
-  <form onSubmit={handleSubmit}>
+  <form className={[classes.root, className].join(' ')} onSubmit={handleSubmit}>
 
-    <div>
-      Title
-      <br />
-      <input name="title" onChange={handleInputChange} value={title} />
-    </div>
+    <Paper className={classes.paper}>
+      <TextField
+        fullWidth
+        label="Title"
+        margin="normal"
+        name="title"
+        onChange={handleInputChange}
+        value={title}
+        variant="outlined"
+      />
+    </Paper>
 
-    <fieldset>
+    <Paper className={classes.paper}>
 
-      <legend>Configuration</legend>
+      <Typography variant="h6">
+        Configuration
+      </Typography>
 
-      <div>
-        API key
-        <br />
-        <input name="apiKey" onChange={handleInputChange} value={apiKey} />
-      </div>
+      <TextField
+        fullWidth
+        label="API key"
+        margin="normal"
+        name="apiKey"
+        onChange={handleInputChange}
+        value={apiKey}
+        variant="outlined"
+      />
 
-      <div>
-        Auth domain
-        <br />
-        <input name="authDomain" onChange={handleInputChange} value={authDomain} />
-      </div>
+      <TextField
+        fullWidth
+        label="Auth domain"
+        margin="normal"
+        name="authDomain"
+        onChange={handleInputChange}
+        value={authDomain}
+        variant="outlined"
+      />
 
-      <div>
-        Database URL
-        <br />
-        <input name="databaseUrl" onChange={handleInputChange} value={databaseUrl} />
-      </div>
+      <TextField
+        fullWidth
+        label="Database URL"
+        margin="normal"
+        name="databaseUrl"
+        onChange={handleInputChange}
+        value={databaseUrl}
+        variant="outlined"
+      />
 
-      <div>
-        Messaging sender ID
-        <br />
-        <input name="messagingSenderId" onChange={handleInputChange} value={messagingSenderId} />
-      </div>
+      <TextField
+        fullWidth
+        label="Messaging sender ID"
+        margin="normal"
+        name="messagingSenderId"
+        onChange={handleInputChange}
+        value={messagingSenderId}
+        variant="outlined"
+      />
 
-      <div>
-        Project ID
-        <br />
-        <input name="projectId" onChange={handleInputChange} value={projectId} />
-      </div>
+      <TextField
+        fullWidth
+        label="Project ID"
+        margin="normal"
+        name="projectId"
+        onChange={handleInputChange}
+        value={projectId}
+        variant="outlined"
+      />
 
-      <div>
-        Storage bucket
-        <br />
-        <input name="storageBucket" onChange={handleInputChange} value={storageBucket} />
-      </div>
+      <TextField
+        fullWidth
+        label="Storage bucket"
+        margin="normal"
+        name="storageBucket"
+        onChange={handleInputChange}
+        value={storageBucket}
+        variant="outlined"
+      />
 
-    </fieldset>
+    </Paper>
 
-    <fieldset>
+    <Paper className={classes.paper}>
 
-      <legend>Redirect</legend>
+      <Typography variant="h6">
+        Sign in options
+      </Typography>
 
-      <div>
-        URL
-        <br />
-        <input name="redirectUrl" onChange={handleInputChange} value={redirectUrl} />
-      </div>
+      <FormGroup>
 
-      <div>
-        Refresh token placeholder
-        <br />
-        <input
-          name="redirectRefreshTokenPlaceholder"
-          onChange={handleInputChange}
-          value={redirectRefreshTokenPlaceholder}
+        <FormControlLabel
+          control={(
+            <Switch
+              checked={signInOptionEmail}
+              name="signInOptionEmail"
+              onChange={handleInputChange}
+            />
+          )}
+          label="Email"
         />
-      </div>
 
-    </fieldset>
+        <FormControlLabel
+          control={(
+            <Switch
+              checked={signInOptionGithub}
+              name="signInOptionGithub"
+              onChange={handleInputChange}
+            />
+          )}
+          label="GitHub"
+        />
 
-    <fieldset>
+        <FormControlLabel
+          control={(
+            <Switch
+              checked={signInOptionGoogle}
+              name="signInOptionGoogle"
+              onChange={handleInputChange}
+            />
+          )}
+          label="Google"
+        />
 
-      <legend>Sign in options</legend>
+      </FormGroup>
 
-      <div>
-        <label htmlFor="signInOptionEmail">
-          <input
-            checked={signInOptionEmail}
-            id="signInOptionEmail"
-            name="signInOptionEmail"
-            onChange={handleInputChange}
-            type="checkbox"
-          />
-          Email
-        </label>
-      </div>
+    </Paper>
 
-      <div>
-        <label htmlFor="signInOptionGithub">
-          <input
-            checked={signInOptionGithub}
-            id="signInOptionGithub"
-            name="signInOptionGithub"
-            onChange={handleInputChange}
-            type="checkbox"
-          />
-          GitHub
-        </label>
-      </div>
+    <Paper className={classes.paper}>
 
-      <div>
-        <label htmlFor="signInOptionGoogle">
-          <input
-            checked={signInOptionGoogle}
-            id="signInOptionGoogle"
-            name="signInOptionGoogle"
-            onChange={handleInputChange}
-            type="checkbox"
-          />
-          Google
-        </label>
-      </div>
+      <Typography variant="h6">
+        Redirect
+      </Typography>
 
-    </fieldset>
+      <TextField
+        fullWidth
+        label="URL"
+        margin="normal"
+        name="redirectUrl"
+        onChange={handleInputChange}
+        value={redirectUrl}
+        variant="outlined"
+      />
 
-    <div>
-      <button type="submit">{buttonTitle}</button>
+      <TextField
+        fullWidth
+        label="Refresh token placeholder"
+        margin="normal"
+        name="redirectRefreshTokenPlaceholder"
+        onChange={handleInputChange}
+        value={redirectRefreshTokenPlaceholder}
+        variant="outlined"
+      />
+
+    </Paper>
+
+    <div className={classes.buttonContainer}>
+      <Button color="primary" type="submit" variant="contained">{buttonTitle}</Button>
     </div>
 
   </form>

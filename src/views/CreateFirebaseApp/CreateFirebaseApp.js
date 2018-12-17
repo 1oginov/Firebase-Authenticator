@@ -18,7 +18,7 @@ const CreateFirebaseApp = ({ classes, handleBackClick, onSubmit }: Props) => (
     <Bar navigationClick={handleBackClick} title="Create Firebase app" />
 
     <div className={classes.root}>
-      <FirebaseAppForm buttonTitle="Create" onSubmit={onSubmit} />
+      <FirebaseAppForm className={classes.form} buttonTitle="Create" onSubmit={onSubmit} />
     </div>
 
   </React.Fragment>
