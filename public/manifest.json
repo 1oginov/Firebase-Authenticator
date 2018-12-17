@@ -1,6 +1,6 @@
 {
-  "short_name": "IoT Auth",
-  "name": "IoT Firebase Authentication App",
+  "short_name": "FirebaseAuth",
+  "name": "Firebase Authenticator",
   "icons": [
     {
       "src": "favicon.ico",

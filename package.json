@@ -1,7 +1,7 @@
 {
-  "name": "iot-firebase-authentication-app",
+  "name": "firebase-authenticator",
   "version": "0.1.0",
-  "description": "IoT Firebase Authentication App",
+  "description": "Firebase Authenticator",
   "scripts": {
     "build": "react-scripts build",
     "coveralls": "npm run test:coverage && cat ./coverage/lcov.info | coveralls",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1oginov/IoT-Firebase-Authentication-App.git"
+    "url": "git+https://github.com/1oginov/Firebase-Authenticator.git"
   },
   "author": "Danila Loginov <danila@loginov.rocks> (https://loginov.rocks)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/1oginov/IoT-Firebase-Authentication-App/issues"
+    "url": "https://github.com/1oginov/Firebase-Authenticator/issues"
   },
-  "homepage": "https://github.com/1oginov/IoT-Firebase-Authentication-App",
+  "homepage": "https://github.com/1oginov/Firebase-Authenticator",
   "dependencies": {
     "firebase": "^5.7.0",
     "react": "^16.6.3",
