@@ -1,7 +1,10 @@
 // @flow
 
+import { createMuiTheme } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
-import { compose, lifecycle, type HOC } from 'recompose';
+import {
+  compose, lifecycle, withProps, type HOC,
+} from 'recompose';
 
 import {
   createFirebaseApp as createFirebaseAppCreator,
@@ -10,6 +13,7 @@ import {
 } from '../../actions';
 import * as R from '../../routes';
 import { parseShareLink } from '../../lib/firebaseApp';
+import themeOptions from '../../style/themeOptions';
 
 const mapStateToProps = ({ currentFirebaseApp, firebaseApps, route }) => ({
   currentFirebaseApp, firebaseApps, route,
@@ -22,6 +26,9 @@ const mapDispatchToProps = {
 };
 
 const enhancer: HOC<*, {}> = compose(
+  withProps(() => ({
+    theme: createMuiTheme(themeOptions),
+  })),
   connect(mapStateToProps, mapDispatchToProps),
   lifecycle({
 

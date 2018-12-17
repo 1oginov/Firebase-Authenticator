@@ -1,28 +1,40 @@
 // @flow
 
+import AddIcon from '@material-ui/icons/Add';
+import Fab from '@material-ui/core/Fab';
 import * as React from 'react';
 
+import Disclaimer from '../../components/Disclaimer';
 import FirebaseAppsList from '../../components/FirebaseAppsList';
+import Logo from '../../components/Logo';
 import type { FirebaseApp } from '../../lib/firebaseApp';
 
 type Props = {
   apps: Array<FirebaseApp>,
+  classes: { [string]: string },
   handleCreateFirebaseAppClick: () => void,
   onSelect: string => void,
 };
 
-const Home = ({ apps, handleCreateFirebaseAppClick, onSelect }: Props) => (
-  <React.Fragment>
+const Home = ({
+  apps, classes, handleCreateFirebaseAppClick, onSelect,
+}: Props) => (
+  <div className={classes.root}>
 
-    <h1>Home</h1>
+    <Logo className={classes.logo} />
 
-    <div>
-      <button onClick={handleCreateFirebaseAppClick} type="button">Create Firebase app</button>
+    <FirebaseAppsList apps={apps} className={classes.firebaseAppsList} onSelect={onSelect} />
+
+    <div className={classes.fabContainer}>
+      <Fab color="secondary" onClick={handleCreateFirebaseAppClick} variant="extended">
+        <AddIcon className={classes.fabIcon} />
+        Create Firebase app
+      </Fab>
     </div>
 
-    <FirebaseAppsList apps={apps} onSelect={onSelect} />
+    <Disclaimer />
 
-  </React.Fragment>
+  </div>
 );
 
 export default Home;

@@ -1,16 +1,21 @@
 // @flow
 
-import firebase from 'firebase';
+import EditIcon from '@material-ui/icons/Edit';
+import MenuIcon from '@material-ui/icons/Menu';
+import ShareIcon from '@material-ui/icons/Share';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import * as React from 'react';
 
 import Authenticated from '../../components/Authenticated';
+import Bar from '../../components/Bar';
 import FirebaseAuth from '../../components/FirebaseAuth';
 import type { FirebaseApp as FirebaseAppType } from '../../lib/firebaseApp';
 
 type Props = {
   app: FirebaseAppType,
+  classes: { [string]: string },
   handleBackClick: () => void,
-  handleDeleteClick: () => void,
   handleShareClick: () => void,
   handleUpdateClick: () => void,
 };
@@ -80,28 +85,36 @@ export default class FirebaseApp extends React.Component<Props, State> {
 
   render() {
     const {
-      app, handleBackClick, handleDeleteClick, handleShareClick, handleUpdateClick,
+      app, classes, handleBackClick, handleShareClick, handleUpdateClick,
     } = this.props;
 
     return (
       <React.Fragment>
 
-        <h1>{app.title}</h1>
+        <Bar
+          actionItems={[
+            {
+              click: handleUpdateClick,
+              icon: <EditIcon />,
+            },
+            {
+              click: handleShareClick,
+              icon: <ShareIcon />,
+            },
+          ]}
+          navigationClick={handleBackClick}
+          navigationIcon={<MenuIcon />}
+          title={app.title ? app.title : app.id}
+        />
 
-        <div>
-          <button onClick={handleBackClick} type="button">Back</button>
-          <button onClick={handleUpdateClick} type="button">Update</button>
-          <button onClick={handleShareClick} type="button">Share</button>
-        </div>
+        <div className={classes.root}>
 
-        {this.renderAuthComponent()}
+          {this.renderAuthComponent()}
 
-        <div>
-          <pre>{JSON.stringify(app, null, 2)}</pre>
-        </div>
+          <div>
+            <pre>{JSON.stringify(app, null, 2)}</pre>
+          </div>
 
-        <div>
-          <button onClick={handleDeleteClick} type="button">Delete</button>
         </div>
 
       </React.Fragment>
