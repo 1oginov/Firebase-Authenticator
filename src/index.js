@@ -3,6 +3,7 @@
 import * as React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
+import 'typeface-roboto';
 
 import App from './containers/App';
 import createStore from './lib/createStore';
