@@ -1,5 +1,7 @@
 // @flow
 
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import * as React from 'react';
 
 import type { FirebaseApp } from '../../lib/firebaseApp';
@@ -10,10 +12,12 @@ type Props = {
 };
 
 const FirebaseAppsListItem = ({ app, onSelect }: Props) => (
-  <div>
-    {app.title}
-    <button onClick={() => onSelect(app.id)} type="button">Select</button>
-  </div>
+  <ListItem button onClick={() => onSelect(app.id)}>
+    <ListItemText
+      primary={app.title ? app.title : app.id}
+      primaryTypographyProps={{ noWrap: true }}
+    />
+  </ListItem>
 );
 
 export default FirebaseAppsListItem;
