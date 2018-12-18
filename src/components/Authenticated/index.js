@@ -2,5 +2,6 @@
 
 import Authenticated from './Authenticated';
 import enhance from './Authenticated.enhancer';
+import style from './Authenticated.styles';
 
-export default enhance(Authenticated);
+export default style(enhance(Authenticated));
