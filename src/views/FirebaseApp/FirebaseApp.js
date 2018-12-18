@@ -1,5 +1,6 @@
 // @flow
 
+import Typography from '@material-ui/core/Typography';
 import EditIcon from '@material-ui/icons/Edit';
 import MenuIcon from '@material-ui/icons/Menu';
 import ShareIcon from '@material-ui/icons/Share';
@@ -9,7 +10,9 @@ import * as React from 'react';
 
 import Authenticated from '../../components/Authenticated';
 import Bar from '../../components/Bar';
+import Disclaimer from '../../components/Disclaimer';
 import FirebaseAuth from '../../components/FirebaseAuth';
+import Progress from '../../components/Progress';
 import type { FirebaseApp as FirebaseAppType } from '../../lib/firebaseApp';
 
 type Props = {
@@ -64,12 +67,12 @@ export default class FirebaseApp extends React.Component<Props, State> {
 
   unregisterAuthObserver: ?Function;
 
-  renderAuthComponent() {
+  renderAuth() {
     const { app } = this.props;
     const { appInstance, isAuthenticated } = this.state;
 
     if (!appInstance) {
-      return <div>Initializing Firebase app...</div>;
+      return <Progress text="Initializing Firebase app..." />;
     }
 
     if (isAuthenticated === false) {
@@ -80,7 +83,7 @@ export default class FirebaseApp extends React.Component<Props, State> {
       return <Authenticated app={app} appInstance={appInstance} />;
     }
 
-    return <div>Loading authentication state...</div>;
+    return <Progress text="Loading authentication state..." />;
   }
 
   render() {
@@ -109,11 +112,23 @@ export default class FirebaseApp extends React.Component<Props, State> {
 
         <div className={classes.root}>
 
-          {this.renderAuthComponent()}
-
-          <div>
-            <pre>{JSON.stringify(app, null, 2)}</pre>
+          <div className={classes.authContainer}>
+            {this.renderAuth()}
           </div>
+
+          <Typography className={classes.info} variant="body1">
+            <strong>Firebase auth domain:</strong>
+            {' '}
+            {app.config.authDomain}
+          </Typography>
+
+          <Typography className={classes.info} variant="body1">
+            <strong>Redirect URL:</strong>
+            {' '}
+            {app.redirect.url}
+          </Typography>
+
+          <Disclaimer />
 
         </div>
 

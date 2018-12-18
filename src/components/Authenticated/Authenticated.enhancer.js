@@ -10,6 +10,7 @@ import { redirect } from '../../lib/location';
 type EnhancedComponentProps = {
   app: FirebaseApp,
   appInstance: Object,
+  classes: { [string]: string },
 };
 
 const enhancer: HOC<*, EnhancedComponentProps> = compose(

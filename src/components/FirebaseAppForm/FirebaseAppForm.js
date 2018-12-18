@@ -52,7 +52,35 @@ const FirebaseAppForm = ({
     <Paper className={classes.paper}>
 
       <Typography variant="h6">
-        Configuration
+        Redirect
+      </Typography>
+
+      <TextField
+        fullWidth
+        label="URL"
+        margin="normal"
+        name="redirectUrl"
+        onChange={handleInputChange}
+        value={redirectUrl}
+        variant="outlined"
+      />
+
+      <TextField
+        fullWidth
+        label="Refresh token placeholder"
+        margin="normal"
+        name="redirectRefreshTokenPlaceholder"
+        onChange={handleInputChange}
+        value={redirectRefreshTokenPlaceholder}
+        variant="outlined"
+      />
+
+    </Paper>
+
+    <Paper className={classes.paper}>
+
+      <Typography variant="h6">
+        Firebase: configuration
       </Typography>
 
       <TextField
@@ -120,7 +148,7 @@ const FirebaseAppForm = ({
     <Paper className={classes.paper}>
 
       <Typography variant="h6">
-        Sign in options
+        Firebase: sign in options
       </Typography>
 
       <FormGroup>
@@ -159,34 +187,6 @@ const FirebaseAppForm = ({
         />
 
       </FormGroup>
-
-    </Paper>
-
-    <Paper className={classes.paper}>
-
-      <Typography variant="h6">
-        Redirect
-      </Typography>
-
-      <TextField
-        fullWidth
-        label="URL"
-        margin="normal"
-        name="redirectUrl"
-        onChange={handleInputChange}
-        value={redirectUrl}
-        variant="outlined"
-      />
-
-      <TextField
-        fullWidth
-        label="Refresh token placeholder"
-        margin="normal"
-        name="redirectRefreshTokenPlaceholder"
-        onChange={handleInputChange}
-        value={redirectRefreshTokenPlaceholder}
-        variant="outlined"
-      />
 
     </Paper>
 

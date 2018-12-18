@@ -1,8 +1,15 @@
 // @flow
 
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 import * as React from 'react';
 
 type Props = {
+  classes: { [string]: string },
   email: string,
   handleContinueClick: () => void,
   handleSignOutClick: () => void,
@@ -11,30 +18,34 @@ type Props = {
 };
 
 const Authenticated = ({
-  email, handleContinueClick, handleSignOutClick, name, pictureUrl,
+  classes, email, handleContinueClick, handleSignOutClick, name, pictureUrl,
 }: Props) => (
-  <React.Fragment>
+  <Card>
 
-    <div>
-      {'Signed in as '}
-      <strong>{name}</strong>
-      {' '}
-      <em>{email}</em>
-    </div>
+    {pictureUrl && (
+      <CardMedia className={classes.media} image={pictureUrl} title="User" />
+    )}
 
-    <div>
-      <button onClick={handleContinueClick} type="button">Continue</button>
-    </div>
+    <CardContent>
 
-    <div>
-      <button onClick={handleSignOutClick} type="button">Sign out</button>
-    </div>
+      <Typography gutterBottom={Boolean(name || email)} variant="h6">Signed in</Typography>
 
-    <div>
-      <img alt="User" src={pictureUrl} />
-    </div>
+      {name && (
+        <Typography>{name}</Typography>
+      )}
 
-  </React.Fragment>
+      {email && (
+        <Typography>{email}</Typography>
+      )}
+
+    </CardContent>
+
+    <CardActions className={classes.actions}>
+      <Button color="secondary" onClick={handleSignOutClick} size="small">Sign out</Button>
+      <Button color="primary" onClick={handleContinueClick} size="small">Continue</Button>
+    </CardActions>
+
+  </Card>
 );
 
 export default Authenticated;
