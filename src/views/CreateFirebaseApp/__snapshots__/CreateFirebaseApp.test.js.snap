@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateFirebaseApp /> renders without crashing and matches snapshot 1`] = `
+<Fragment>
+  <WithStyles(Bar)
+    navigationClick={[Function]}
+    title="Create Firebase app"
+  />
+  <div
+    className="root"
+  >
+    <WithStyles(withStateHandlers(withHandlers(FirebaseAppForm)))
+      buttonIcon={[Function]}
+      buttonTitle="Create app"
+      className="form"
+      onSubmit={[Function]}
+    />
+  </div>
+</Fragment>
+`;

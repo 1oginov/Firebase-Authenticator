@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Authenticated /> renders without crashing and matches snapshot 1`] = `
+<WithStyles(Card)>
+  <WithStyles(CardMedia)
+    className="media"
+    image="https://example.com/picture.png"
+    title="User"
+  />
+  <WithStyles(CardContent)>
+    <WithStyles(Typography)
+      gutterBottom={true}
+      variant="h6"
+    >
+      Signed in
+    </WithStyles(Typography)>
+    <WithStyles(Typography)>
+      Name
+    </WithStyles(Typography)>
+    <WithStyles(Typography)>
+      email@example.com
+    </WithStyles(Typography)>
+  </WithStyles(CardContent)>
+  <WithStyles(CardActions)
+    className="actions"
+  >
+    <WithStyles(Button)
+      color="secondary"
+      onClick={[Function]}
+      size="small"
+    >
+      Sign out
+    </WithStyles(Button)>
+    <WithStyles(Button)
+      color="primary"
+      onClick={[Function]}
+      size="small"
+    >
+      Continue
+    </WithStyles(Button)>
+  </WithStyles(CardActions)>
+</WithStyles(Card)>
+`;

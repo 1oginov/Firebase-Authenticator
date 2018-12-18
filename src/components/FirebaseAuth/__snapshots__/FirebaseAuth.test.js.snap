@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FirebaseAuth /> renders without crashing and matches snapshot 1`] = `
+<FirebaseAuth
+  firebaseAuth={
+    Object {
+      "apiKey": "API key",
+      "appName": "[DEFAULT]",
+      "authDomain": "Auth domain",
+      "currentUser": null,
+    }
+  }
+  uiConfig={
+    Object {
+      "callbacks": Object {
+        "signInSuccessWithAuthResult": [Function],
+      },
+      "signInOptions": Array [
+        "password",
+        "github.com",
+        "google.com",
+      ],
+    }
+  }
+/>
+`;

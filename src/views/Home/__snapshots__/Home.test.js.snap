@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> renders without crashing and matches snapshot 1`] = `
+<div
+  className="root"
+>
+  <WithStyles(Logo)
+    className="logo"
+  />
+  <WithStyles(FirebaseAppsList)
+    apps={
+      Array [
+        Object {
+          "config": Object {
+            "apiKey": "API key",
+            "authDomain": "Auth domain",
+            "databaseURL": "Database URL",
+            "messagingSenderId": "Messaging sender ID",
+            "projectId": "Project ID",
+            "storageBucket": "Storage bucket",
+          },
+          "id": "123",
+          "redirect": Object {
+            "refreshTokenPlaceholder": "%refreshToken%",
+            "url": "https://example.com/auth?refresh-token=%refreshToken%",
+          },
+          "signInOptions": Array [
+            "email",
+            "github",
+            "google",
+          ],
+          "title": "App",
+        },
+      ]
+    }
+    className="firebaseAppsList"
+    onSelect={[Function]}
+  />
+  <div
+    className="fabContainer"
+  >
+    <WithStyles(Fab)
+      color="secondary"
+      onClick={[Function]}
+      variant="extended"
+    >
+      <pure(AddIcon)
+        className="fabIcon"
+      />
+      Create Firebase app
+    </WithStyles(Fab)>
+  </div>
+  <WithStyles(Disclaimer) />
+</div>
+`;

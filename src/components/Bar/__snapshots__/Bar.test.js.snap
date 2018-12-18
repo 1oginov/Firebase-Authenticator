@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Bar /> renders without crashing and matches snapshot 1`] = `
+<WithStyles(AppBar)
+  color="default"
+  position="static"
+>
+  <WithStyles(Toolbar)>
+    <WithStyles(IconButton)
+      className="navigationButton"
+      color="inherit"
+      onClick={[Function]}
+    >
+      <pure(ArrowBackIcon) />
+    </WithStyles(IconButton)>
+    <WithStyles(Typography)
+      className="title"
+      color="inherit"
+      noWrap={true}
+      variant="h6"
+    >
+      Title
+    </WithStyles(Typography)>
+  </WithStyles(Toolbar)>
+</WithStyles(AppBar)>
+`;

@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FirebaseAppForm /> renders without crashing and matches snapshot 1`] = `
+<form
+  className="root firebase-app-form"
+  onSubmit={[Function]}
+>
+  <WithStyles(Paper)
+    className="paper"
+  >
+    <TextField
+      fullWidth={true}
+      label="Title"
+      margin="normal"
+      name="title"
+      onChange={[Function]}
+      required={false}
+      select={false}
+      value="App"
+      variant="outlined"
+    />
+  </WithStyles(Paper)>
+  <WithStyles(Paper)
+    className="paper"
+  >
+    <WithStyles(Typography)
+      variant="h6"
+    >
+      Redirect
+    </WithStyles(Typography)>
+    <TextField
+      fullWidth={true}
+      label="URL"
+      margin="normal"
+      name="redirectUrl"
+      onChange={[Function]}
+      required={false}
+      select={false}
+      value="https://example.com/auth?refresh-token=%refreshToken%"
+      variant="outlined"
+    />
+    <TextField
+      fullWidth={true}
+      label="Refresh token placeholder"
+      margin="normal"
+      name="redirectRefreshTokenPlaceholder"
+      onChange={[Function]}
+      required={false}
+      select={false}
+      value="%refreshToken%"
+      variant="outlined"
+    />
+  </WithStyles(Paper)>
+  <WithStyles(Paper)
+    className="paper"
+  >
+    <WithStyles(Typography)
+      variant="h6"
+    >
+      Firebase: configuration
+    </WithStyles(Typography)>
+    <TextField
+      fullWidth={true}
+      label="API key"
+      margin="normal"
+      name="apiKey"
+      onChange={[Function]}
+      required={false}
+      select={false}
+      value="API key"
+      variant="outlined"
+    />
+    <TextField
+      fullWidth={true}
+      label="Auth domain"
+      margin="normal"
+      name="authDomain"
+      onChange={[Function]}
+      required={false}
+      select={false}
+      value="Auth domain"
+      variant="outlined"
+    />
+    <TextField
+      fullWidth={true}
+      label="Database URL"
+      margin="normal"
+      name="databaseUrl"
+      onChange={[Function]}
+      required={false}
+      select={false}
+      value="Database URL"
+      variant="outlined"
+    />
+    <TextField
+      fullWidth={true}
+      label="Messaging sender ID"
+      margin="normal"
+      name="messagingSenderId"
+      onChange={[Function]}
+      required={false}
+      select={false}
+      value="Messaging sender ID"
+      variant="outlined"
+    />
+    <TextField
+      fullWidth={true}
+      label="Project ID"
+      margin="normal"
+      name="projectId"
+      onChange={[Function]}
+      required={false}
+      select={false}
+      value="Project ID"
+      variant="outlined"
+    />
+    <TextField
+      fullWidth={true}
+      label="Storage bucket"
+      margin="normal"
+      name="storageBucket"
+      onChange={[Function]}
+      required={false}
+      select={false}
+      value="Storage bucket"
+      variant="outlined"
+    />
+  </WithStyles(Paper)>
+  <WithStyles(Paper)
+    className="paper"
+  >
+    <WithStyles(Typography)
+      variant="h6"
+    >
+      Firebase: sign in options
+    </WithStyles(Typography)>
+    <WithStyles(FormGroup)>
+      <WithStyles(WithFormControlContext(FormControlLabel))
+        control={
+          <WithStyles(Switch)
+            checked={true}
+            name="signInOptionEmail"
+            onChange={[Function]}
+          />
+        }
+        label="Email"
+      />
+      <WithStyles(WithFormControlContext(FormControlLabel))
+        control={
+          <WithStyles(Switch)
+            checked={true}
+            name="signInOptionGithub"
+            onChange={[Function]}
+          />
+        }
+        label="GitHub"
+      />
+      <WithStyles(WithFormControlContext(FormControlLabel))
+        control={
+          <WithStyles(Switch)
+            checked={true}
+            name="signInOptionGoogle"
+            onChange={[Function]}
+          />
+        }
+        label="Google"
+      />
+    </WithStyles(FormGroup)>
+  </WithStyles(Paper)>
+  <div
+    className="buttonContainer"
+  >
+    <WithStyles(Fab)
+      color="primary"
+      type="submit"
+      variant="extended"
+    >
+      <pure(AddIcon)
+        className="buttonIcon"
+      />
+      Test form
+    </WithStyles(Fab)>
+  </div>
+</form>
+`;

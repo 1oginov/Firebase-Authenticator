@@ -1,6 +1,7 @@
 // @flow
 
 import firebase from 'firebase/app';
+import 'firebase/auth';
 import * as React from 'react';
 import FirebaseUi from 'react-firebaseui/FirebaseAuth';
 

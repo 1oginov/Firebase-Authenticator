@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Progress /> renders without crashing and matches snapshot 1`] = `
+<div
+  className="root"
+>
+  <WithStyles(CircularProgress)
+    size={64}
+  />
+  <WithStyles(Typography)
+    className="text"
+    color="textSecondary"
+    variant="body1"
+  >
+    Loading...
+  </WithStyles(Typography)>
+</div>
+`;
