@@ -6,6 +6,7 @@ export default (theme: Theme) => ({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
+  flexGrow: 1,
   justifyContent: 'center',
   padding: 3 * theme.spacing.unit,
 });

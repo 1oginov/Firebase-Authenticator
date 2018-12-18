@@ -9,6 +9,7 @@ import App from './containers/App';
 import createStore from './lib/createStore';
 import reducer from './reducer';
 import * as serviceWorker from './serviceWorker';
+import './style/index.css';
 
 const container = document.getElementById('container');
 const store = createStore(reducer);
