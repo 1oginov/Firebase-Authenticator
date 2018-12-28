@@ -28,6 +28,10 @@
 #define GOOGLE_SECURE_TOKEN_HOST F("securetoken.googleapis.com")
 #define GOOGLE_SECURE_TOKEN_URL F("/v1/token?key=")
 
+// Firebase API.
+#define FIREBASE_API_HOST F("www.googleapis.com")
+#define FIREBASE_API_USER_URL F("/identitytoolkit/v3/relyingparty/getAccountInfo?key=")
+
 ESP8266WebServer webServer(80);
 WiFiClientSecure client;
 
@@ -195,6 +199,35 @@ boolean obtainTokens(String refreshToken)
   return false;
 }
 
+String getAccountInfo(String idToken)
+{
+  // TODO: Verify fingerprint (faced with SHA1 issue with Google API).
+  if (client.connect(FIREBASE_API_HOST, 443))
+  {
+    String url = String(FIREBASE_API_USER_URL) + FIREBASE_API_KEY;
+    String data = String(F("{\"idToken\":\"")) + idToken + F("\"}");
+
+    // Send request.
+    client.print(F("POST "));
+    client.print(url + F(" HTTP/1.1\r\nHost: "));
+    client.println(FIREBASE_API_HOST);
+    client.print(F("Connection: close\r\nContent-Type: application/json\r\nContent-Length: "));
+    client.println(data.length());
+    client.println();
+    client.println(data);
+
+    // Read response.
+    String response = readResponse();
+    client.stop();
+
+    return response;
+  }
+
+  client.stop();
+
+  return "";
+}
+
 void authController()
 {
   Serial.println(F("Auth controller invoked"));
@@ -242,6 +275,20 @@ void logoutController()
   webServer.send(200, F("text/plain"), F("Signed out"));
 }
 
+void userController()
+{
+  Serial.println(F("User controller invoked"));
+
+  if (currentIdToken == "")
+  {
+    webServer.send(401, F("text/plain"), "");
+
+    return;
+  }
+
+  webServer.send(200, F("text/plain"), getAccountInfo(currentIdToken));
+}
+
 void setup()
 {
   Serial.begin(115200);
@@ -260,6 +307,7 @@ void setup()
   webServer.on(F("/"), homeController);
   webServer.on(F("/auth"), authController);
   webServer.on(F("/logout"), logoutController);
+  webServer.on(F("/user"), userController);
   webServer.begin();
 
   Serial.print(F("Web server started on "));
