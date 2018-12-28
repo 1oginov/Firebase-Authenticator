@@ -24,13 +24,13 @@
 #define FIREBASE_PROJECT_ID F("iot-firebase-authentication")
 #define FIREBASE_STORAGE_BUCKET F("iot-firebase-authentication.appspot.com")
 
-// Google Secure Token API.
-#define GOOGLE_SECURE_TOKEN_HOST F("securetoken.googleapis.com")
-#define GOOGLE_SECURE_TOKEN_URL F("/v1/token?key=")
-
 // Firebase API.
 #define FIREBASE_API_HOST F("www.googleapis.com")
 #define FIREBASE_API_USER_URL F("/identitytoolkit/v3/relyingparty/getAccountInfo?key=")
+
+// Secure token API.
+#define SECURE_TOKEN_API_HOST F("securetoken.googleapis.com")
+#define SECURE_TOKEN_API_URL F("/v1/token?key=")
 
 ESP8266WebServer webServer(80);
 WiFiClientSecure client;
@@ -131,15 +131,15 @@ boolean obtainTokens(String refreshToken)
   Serial.println(refreshToken);
 
   // TODO: Verify fingerprint (faced with SHA1 issue with Google API).
-  if (client.connect(GOOGLE_SECURE_TOKEN_HOST, 443))
+  if (client.connect(SECURE_TOKEN_API_HOST, 443))
   {
-    String url = String(GOOGLE_SECURE_TOKEN_URL) + FIREBASE_API_KEY;
+    String url = String(SECURE_TOKEN_API_URL) + FIREBASE_API_KEY;
     String data = String(F("grant_type=refresh_token&refresh_token=")) + refreshToken;
 
     // Send request.
     client.print(F("POST "));
     client.print(url + F(" HTTP/1.1\r\nHost: "));
-    client.println(GOOGLE_SECURE_TOKEN_HOST);
+    client.println(SECURE_TOKEN_API_HOST);
     client.print(F("Connection: close\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: "));
     client.println(data.length());
     client.println();
@@ -201,6 +201,9 @@ boolean obtainTokens(String refreshToken)
 
 String getAccountInfo(String idToken)
 {
+  Serial.print(F("Getting account info for the following ID token: "));
+  Serial.println(idToken);
+
   // TODO: Verify fingerprint (faced with SHA1 issue with Google API).
   if (client.connect(FIREBASE_API_HOST, 443))
   {
@@ -223,6 +226,8 @@ String getAccountInfo(String idToken)
     return response;
   }
 
+  Serial.println(F("Account info getting failed because of connection failure"));
+
   client.stop();
 
   return "";
@@ -238,12 +243,12 @@ void authController()
   if (refreshToken != "" && obtainTokens(refreshToken))
   {
     webServer.sendHeader(F("Location"), "/", true);
-    webServer.send(302, F("text/plain"), "");
+    webServer.send(302, F("text/plain"), F("302 Found"));
 
     return;
   }
 
-  webServer.send(400, F("text/plain"), "");
+  webServer.send(400, F("text/plain"), F("400 Bad Request"));
 }
 
 void homeController()
@@ -254,7 +259,7 @@ void homeController()
   if (currentRefreshToken == "")
   {
     webServer.sendHeader(F("Location"), buildFirebaseAuthenticatorUrl(), true);
-    webServer.send(302, F("text/plain"), "");
+    webServer.send(302, F("text/plain"), F("302 Found"));
 
     return;
   }
@@ -275,13 +280,20 @@ void logoutController()
   webServer.send(200, F("text/plain"), F("Signed out"));
 }
 
+void notFoundController()
+{
+  Serial.println(F("Not found controller invoked"));
+
+  webServer.send(404, F("text/plain"), F("404 Not Found"));
+}
+
 void userController()
 {
   Serial.println(F("User controller invoked"));
 
   if (currentIdToken == "")
   {
-    webServer.send(401, F("text/plain"), "");
+    webServer.send(401, F("text/plain"), F("401 Unauthorized"));
 
     return;
   }
@@ -304,10 +316,11 @@ void setup()
   // Web server setup.
   Serial.println(F("Starting web server..."));
 
-  webServer.on(F("/"), homeController);
+  webServer.on("/", homeController);
   webServer.on(F("/auth"), authController);
   webServer.on(F("/logout"), logoutController);
   webServer.on(F("/user"), userController);
+  webServer.onNotFound(notFoundController);
   webServer.begin();
 
   Serial.print(F("Web server started on "));
