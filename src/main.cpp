@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <ArduinoJson.h>
 #include <DNSServer.h>
 #include <ESP8266HTTPClient.h>
 #include <ESP8266WebServer.h>
@@ -29,6 +30,12 @@
 
 ESP8266WebServer webServer(80);
 WiFiClientSecure client;
+
+String currentAccessToken = "";
+String currentIdToken = "";
+String currentProjectId = "";
+String currentRefreshToken = "";
+String currentUserId = "";
 
 String ip2string(IPAddress ip)
 {
@@ -87,7 +94,7 @@ String buildFirebaseAuthenticatorUrl()
          F("%22%7D");
 }
 
-String parseResponse()
+String readResponse()
 {
   boolean areHeadersSkipped = false;
   String response;
@@ -103,6 +110,7 @@ String parseResponse()
         response += line;
       }
 
+      // Empty string is a separator before the data.
       if (line == "\r")
       {
         areHeadersSkipped = true;
@@ -113,7 +121,7 @@ String parseResponse()
   return response;
 }
 
-void obtainTokens(String refreshToken)
+boolean obtainTokens(String refreshToken)
 {
   Serial.print(F("Obtaining tokens for the following refresh token: "));
   Serial.println(refreshToken);
@@ -133,18 +141,58 @@ void obtainTokens(String refreshToken)
     client.println();
     client.println(data);
 
-    // TODO: Parse JSON response.
-    String response = parseResponse();
-    Serial.println(response);
+    // Read response.
+    String response = readResponse();
+    client.stop();
 
-    Serial.println(F("Tokens obtained"));
+    // Parse response.
+    const size_t bufferSize = JSON_OBJECT_SIZE(7) + 3056;
+    DynamicJsonBuffer jsonBuffer(bufferSize);
+    JsonObject &json = jsonBuffer.parseObject(response);
+
+    if (!json.success())
+    {
+      Serial.println(F("Tokens obtaining failed because of JSON parsing failure"));
+
+      return false;
+    }
+
+    // Store values.
+    currentAccessToken = json[F("access_token")].as<String>();
+
+    // We need to check for empty values even if the parsing successful.
+    if (currentAccessToken == "")
+    {
+      Serial.println(F("Tokens obtaining failed because of empty access token"));
+
+      return false;
+    }
+
+    currentIdToken = json[F("id_token")].as<String>();
+    currentProjectId = json[F("project_id")].as<String>();
+    currentRefreshToken = json[F("refresh_token")].as<String>();
+    currentUserId = json[F("user_id")].as<String>();
+
+    Serial.println(F("The following tokens obtained:"));
+    Serial.print(F("Access token: "));
+    Serial.println(currentAccessToken);
+    Serial.print(F("ID token: "));
+    Serial.println(currentIdToken);
+    Serial.print(F("Project ID: "));
+    Serial.println(currentProjectId);
+    Serial.print(F("Refresh token: "));
+    Serial.println(currentRefreshToken);
+    Serial.print(F("User ID: "));
+    Serial.println(currentUserId);
+
+    return true;
   }
-  else
-  {
-    Serial.println(F("Tokens obtaining failed"));
-  }
+
+  Serial.println(F("Tokens obtaining failed because of connection failure"));
 
   client.stop();
+
+  return false;
 }
 
 void authController()
@@ -152,17 +200,46 @@ void authController()
   Serial.println(F("Auth controller invoked"));
 
   String refreshToken = webServer.arg(F("refresh-token"));
-  obtainTokens(refreshToken);
 
-  webServer.send(200, F("text/plain"), String(F("Refresh token set: ")) + refreshToken);
+  // Obtain tokens for the refresh token and redirect user to the home page in case of success.
+  if (refreshToken != "" && obtainTokens(refreshToken))
+  {
+    webServer.sendHeader(F("Location"), "/", true);
+    webServer.send(302, F("text/plain"), "");
+
+    return;
+  }
+
+  webServer.send(400, F("text/plain"), "");
 }
 
-void rootController()
+void homeController()
 {
-  Serial.println(F("Root controller invoked"));
+  Serial.println(F("Home controller invoked"));
 
-  webServer.sendHeader(F("Location"), buildFirebaseAuthenticatorUrl(), true);
-  webServer.send(302, F("text/plain"), "");
+  // Redirect user to the Firebase Authenticator if not authenticated yet.
+  if (currentRefreshToken == "")
+  {
+    webServer.sendHeader(F("Location"), buildFirebaseAuthenticatorUrl(), true);
+    webServer.send(302, F("text/plain"), "");
+
+    return;
+  }
+
+  webServer.send(200, F("text/plain"), F("Signed in"));
+}
+
+void logoutController()
+{
+  Serial.println(F("Logout controller invoked"));
+
+  currentAccessToken = "";
+  currentIdToken = "";
+  currentProjectId = "";
+  currentRefreshToken = "";
+  currentUserId = "";
+
+  webServer.send(200, F("text/plain"), F("Signed out"));
 }
 
 void setup()
@@ -180,8 +257,9 @@ void setup()
   // Web server setup.
   Serial.println(F("Starting web server..."));
 
-  webServer.on(F("/"), rootController);
+  webServer.on(F("/"), homeController);
   webServer.on(F("/auth"), authController);
+  webServer.on(F("/logout"), logoutController);
   webServer.begin();
 
   Serial.print(F("Web server started on "));
