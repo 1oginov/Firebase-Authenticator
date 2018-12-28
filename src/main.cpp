@@ -30,9 +30,6 @@
 ESP8266WebServer webServer(80);
 WiFiClientSecure client;
 
-String authToken = "";
-String refreshToken = "";
-
 String ip2string(IPAddress ip)
 {
   String string = "";
@@ -90,29 +87,36 @@ String buildFirebaseAuthenticatorUrl()
          F("%22%7D");
 }
 
-void authController()
+String parseResponse()
 {
-  Serial.println(F("Auth controller invoked"));
+  boolean areHeadersSkipped = false;
+  String response;
 
-  refreshToken = webServer.arg(F("refresh-token"));
+  while (client.connected() || client.available())
+  {
+    if (client.available())
+    {
+      String line = client.readStringUntil('\n');
 
-  Serial.print(F("Refresh token received: "));
+      if (areHeadersSkipped)
+      {
+        response += line;
+      }
+
+      if (line == "\r")
+      {
+        areHeadersSkipped = true;
+      }
+    }
+  }
+
+  return response;
+}
+
+void obtainTokens(String refreshToken)
+{
+  Serial.print(F("Obtaining tokens for the following refresh token: "));
   Serial.println(refreshToken);
-
-  webServer.send(200, F("text/plain"), String(F("Refresh token set: ")) + refreshToken);
-}
-
-void rootController()
-{
-  Serial.println(F("Root controller invoked"));
-
-  webServer.sendHeader(F("Location"), buildFirebaseAuthenticatorUrl(), true);
-  webServer.send(302, F("text/plain"), "");
-}
-
-void updateTokens()
-{
-  Serial.println(F("Updating tokens..."));
 
   // TODO: Verify fingerprint (faced with SHA1 issue with Google API).
   if (client.connect(GOOGLE_SECURE_TOKEN_HOST, 443))
@@ -129,28 +133,36 @@ void updateTokens()
     client.println();
     client.println(data);
 
-    // Wait for the response.
-    while (client.connected() || client.available())
-    {
-      if (client.available())
-      {
-        // TODO: Parse response and store needed data.
-        String line = client.readStringUntil('\n');
-        Serial.println(line);
-      }
-    }
+    // TODO: Parse JSON response.
+    String response = parseResponse();
+    Serial.println(response);
 
-    Serial.println(F("Tokens updated"));
+    Serial.println(F("Tokens obtained"));
   }
   else
   {
-    Serial.println(F("Tokens are not updated, reason: connection failure"));
+    Serial.println(F("Tokens obtaining failed"));
   }
 
   client.stop();
+}
 
-  // TODO: Set the auth token in the right way.
-  authToken = "set";
+void authController()
+{
+  Serial.println(F("Auth controller invoked"));
+
+  String refreshToken = webServer.arg(F("refresh-token"));
+  obtainTokens(refreshToken);
+
+  webServer.send(200, F("text/plain"), String(F("Refresh token set: ")) + refreshToken);
+}
+
+void rootController()
+{
+  Serial.println(F("Root controller invoked"));
+
+  webServer.sendHeader(F("Location"), buildFirebaseAuthenticatorUrl(), true);
+  webServer.send(302, F("text/plain"), "");
 }
 
 void setup()
@@ -180,9 +192,4 @@ void setup()
 void loop()
 {
   webServer.handleClient();
-
-  if (refreshToken != "" && authToken == "")
-  {
-    updateTokens();
-  }
 }
