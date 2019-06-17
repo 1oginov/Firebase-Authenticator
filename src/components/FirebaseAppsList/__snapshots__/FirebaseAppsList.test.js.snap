@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FirebaseAppsList /> renders without crashing and matches snapshot 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="paper firebase-apps-list"
+>
+  <WithStyles(ForwardRef(List))>
+    <FirebaseAppsListItem
+      app={
+        Object {
+          "config": Object {
+            "apiKey": "API key",
+            "authDomain": "Auth domain",
+            "databaseURL": "Database URL",
+            "messagingSenderId": "Messaging sender ID",
+            "projectId": "Project ID",
+            "storageBucket": "Storage bucket",
+          },
+          "id": "123",
+          "redirect": Object {
+            "refreshTokenPlaceholder": "%refreshToken%",
+            "url": "https://example.com/auth?refresh-token=%refreshToken%",
+          },
+          "signInOptions": Array [
+            "email",
+            "github",
+            "google",
+          ],
+          "title": "App",
+        }
+      }
+      key="0"
+      onSelect={[Function]}
+    />
+  </WithStyles(ForwardRef(List))>
+</WithStyles(ForwardRef(Paper))>
+`;

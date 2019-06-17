@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FirebaseApp /> renders without crashing and matches snapshot 1`] = `
+<Fragment>
+  <WithStyles(Bar)
+    actionItems={
+      Array [
+        Object {
+          "click": [Function],
+          "icon": <Memo />,
+        },
+        Object {
+          "click": [Function],
+          "icon": <Memo />,
+        },
+      ]
+    }
+    navigationClick={[Function]}
+    navigationIcon={<Memo />}
+    title="App"
+  />
+  <div
+    className="root"
+  >
+    <div
+      className="authContainer"
+    >
+      <WithStyles(Progress)
+        text="Loading authentication state..."
+      />
+    </div>
+    <WithStyles(ForwardRef(Typography))
+      className="info"
+      variant="body1"
+    >
+      <strong>
+        Firebase auth domain:
+      </strong>
+       
+      Auth domain
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Typography))
+      className="info"
+      variant="body1"
+    >
+      <strong>
+        Redirect URL:
+      </strong>
+       
+      https://example.com/auth?refresh-token=%refreshToken%
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(Disclaimer) />
+  </div>
+</Fragment>
+`;

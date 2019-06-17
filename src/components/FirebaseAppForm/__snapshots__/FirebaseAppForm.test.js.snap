@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FirebaseAppForm /> renders without crashing and matches snapshot 1`] = `
+<form
+  className="root firebase-app-form"
+  onSubmit={[Function]}
+>
+  <WithStyles(ForwardRef(Paper))
+    className="paper"
+  >
+    <WithStyles(ForwardRef(TextField))
+      fullWidth={true}
+      label="Title"
+      margin="normal"
+      name="title"
+      onChange={[Function]}
+      value="App"
+      variant="outlined"
+    />
+  </WithStyles(ForwardRef(Paper))>
+  <WithStyles(ForwardRef(Paper))
+    className="paper"
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h6"
+    >
+      Redirect
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(TextField))
+      fullWidth={true}
+      label="URL"
+      margin="normal"
+      name="redirectUrl"
+      onChange={[Function]}
+      value="https://example.com/auth?refresh-token=%refreshToken%"
+      variant="outlined"
+    />
+    <WithStyles(ForwardRef(TextField))
+      fullWidth={true}
+      label="Refresh token placeholder"
+      margin="normal"
+      name="redirectRefreshTokenPlaceholder"
+      onChange={[Function]}
+      value="%refreshToken%"
+      variant="outlined"
+    />
+  </WithStyles(ForwardRef(Paper))>
+  <WithStyles(ForwardRef(Paper))
+    className="paper"
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h6"
+    >
+      Firebase: configuration
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(TextField))
+      fullWidth={true}
+      label="API key"
+      margin="normal"
+      name="apiKey"
+      onChange={[Function]}
+      value="API key"
+      variant="outlined"
+    />
+    <WithStyles(ForwardRef(TextField))
+      fullWidth={true}
+      label="Auth domain"
+      margin="normal"
+      name="authDomain"
+      onChange={[Function]}
+      value="Auth domain"
+      variant="outlined"
+    />
+    <WithStyles(ForwardRef(TextField))
+      fullWidth={true}
+      label="Database URL"
+      margin="normal"
+      name="databaseUrl"
+      onChange={[Function]}
+      value="Database URL"
+      variant="outlined"
+    />
+    <WithStyles(ForwardRef(TextField))
+      fullWidth={true}
+      label="Messaging sender ID"
+      margin="normal"
+      name="messagingSenderId"
+      onChange={[Function]}
+      value="Messaging sender ID"
+      variant="outlined"
+    />
+    <WithStyles(ForwardRef(TextField))
+      fullWidth={true}
+      label="Project ID"
+      margin="normal"
+      name="projectId"
+      onChange={[Function]}
+      value="Project ID"
+      variant="outlined"
+    />
+    <WithStyles(ForwardRef(TextField))
+      fullWidth={true}
+      label="Storage bucket"
+      margin="normal"
+      name="storageBucket"
+      onChange={[Function]}
+      value="Storage bucket"
+      variant="outlined"
+    />
+  </WithStyles(ForwardRef(Paper))>
+  <WithStyles(ForwardRef(Paper))
+    className="paper"
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h6"
+    >
+      Firebase: sign in options
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(FormGroup))>
+      <WithStyles(WithFormControlContext(ForwardRef(FormControlLabel)))
+        control={
+          <ForwardRef(WithStyles)
+            checked={true}
+            name="signInOptionEmail"
+            onChange={[Function]}
+          />
+        }
+        label="Email"
+      />
+      <WithStyles(WithFormControlContext(ForwardRef(FormControlLabel)))
+        control={
+          <ForwardRef(WithStyles)
+            checked={true}
+            name="signInOptionGithub"
+            onChange={[Function]}
+          />
+        }
+        label="GitHub"
+      />
+      <WithStyles(WithFormControlContext(ForwardRef(FormControlLabel)))
+        control={
+          <ForwardRef(WithStyles)
+            checked={true}
+            name="signInOptionGoogle"
+            onChange={[Function]}
+          />
+        }
+        label="Google"
+      />
+    </WithStyles(ForwardRef(FormGroup))>
+  </WithStyles(ForwardRef(Paper))>
+  <div
+    className="buttonContainer"
+  >
+    <WithStyles(ForwardRef(Fab))
+      color="primary"
+      type="submit"
+      variant="extended"
+    >
+      <AddIcon
+        className="buttonIcon"
+      />
+      Test form
+    </WithStyles(ForwardRef(Fab))>
+  </div>
+</form>
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FirebaseAppsListItem /> renders without crashing and matches snapshot 1`] = `
+<WithStyles(ForwardRef(ListItem))
+  button={true}
+  onClick={[Function]}
+>
+  <WithStyles(ForwardRef(ListItemText))
+    primary="App"
+    primaryTypographyProps={
+      Object {
+        "noWrap": true,
+      }
+    }
+  />
+</WithStyles(ForwardRef(ListItem))>
+`;

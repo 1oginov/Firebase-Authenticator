@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UpdateFirebaseApp /> renders without crashing and matches snapshot 1`] = `
+<Fragment>
+  <WithStyles(Bar)
+    navigationClick={[Function]}
+    title="Update Firebase app"
+  />
+  <div
+    className="root"
+  >
+    <WithStyles(withStateHandlers(withHandlers(FirebaseAppForm)))
+      buttonIcon={[Function]}
+      buttonTitle="Save changes"
+      className="form"
+      initial={
+        Object {
+          "config": Object {
+            "apiKey": "API key",
+            "authDomain": "Auth domain",
+            "databaseURL": "Database URL",
+            "messagingSenderId": "Messaging sender ID",
+            "projectId": "Project ID",
+            "storageBucket": "Storage bucket",
+          },
+          "id": "123",
+          "redirect": Object {
+            "refreshTokenPlaceholder": "%refreshToken%",
+            "url": "https://example.com/auth?refresh-token=%refreshToken%",
+          },
+          "signInOptions": Array [
+            "email",
+            "github",
+            "google",
+          ],
+          "title": "App",
+        }
+      }
+      onSubmit={[Function]}
+    />
+    <div>
+      <WithStyles(ForwardRef(Divider))
+        className="deleteDivider"
+      />
+      <div
+        className="deleteContainer"
+      >
+        <WithStyles(ForwardRef(Button))
+          className="deleteButton"
+          onClick={[Function]}
+          variant="outlined"
+        >
+          Delete
+        </WithStyles(ForwardRef(Button))>
+        <WithStyles(ForwardRef(Typography))>
+          This action cannot be undone!
+        </WithStyles(ForwardRef(Typography))>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;

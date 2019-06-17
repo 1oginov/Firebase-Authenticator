@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Disclaimer /> renders without crashing and matches snapshot 1`] = `
+<WithStyles(ForwardRef(Typography))
+  className="root"
+>
+  Configured apps persisted only in this browser and nowhere else. The project is open source and available at
+   
+  <a
+    className="link"
+    href="https://github.com/1oginov/Firebase-Authenticator"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    GitHub
+  </a>
+</WithStyles(ForwardRef(Typography))>
+`;

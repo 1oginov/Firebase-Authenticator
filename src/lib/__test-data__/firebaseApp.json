@@ -1,0 +1,21 @@
+{
+  "config": {
+    "apiKey": "API key",
+    "authDomain": "Auth domain",
+    "databaseURL": "Database URL",
+    "messagingSenderId": "Messaging sender ID",
+    "projectId": "Project ID",
+    "storageBucket": "Storage bucket"
+  },
+  "id": "123",
+  "redirect": {
+    "refreshTokenPlaceholder": "%refreshToken%",
+    "url": "https://example.com/auth?refresh-token=%refreshToken%"
+  },
+  "signInOptions": [
+    "email",
+    "github",
+    "google"
+  ],
+  "title": "App"
+}
