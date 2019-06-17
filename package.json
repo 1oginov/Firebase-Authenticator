@@ -4,8 +4,9 @@
   "description": "Firebase Authenticator",
   "scripts": {
     "build": "react-scripts build",
-    "build:release": "npm run check && rimraf docs && cpx \"build/**\" docs",
-    "check": "npm run lint && npm run flow && cross-env CI=true npm test && npm run build",
+    "build:release": "npm run ci && npm run clean:docs && cpx \"build/**\" docs",
+    "ci": "npm run lint && npm run flow && cross-env CI=true npm run test:coverage && npm run build",
+    "clean:docs": "rimraf docs",
     "coveralls": "npm run test:coverage && cat ./coverage/lcov.info | coveralls",
     "flow": "flow",
     "lint": "eslint src",
