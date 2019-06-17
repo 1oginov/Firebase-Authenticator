@@ -7,16 +7,16 @@ exports[`<FirebaseApp /> renders without crashing and matches snapshot 1`] = `
       Array [
         Object {
           "click": [Function],
-          "icon": <pure(EditIcon) />,
+          "icon": <Memo />,
         },
         Object {
           "click": [Function],
-          "icon": <pure(ShareIcon) />,
+          "icon": <Memo />,
         },
       ]
     }
     navigationClick={[Function]}
-    navigationIcon={<pure(MenuIcon) />}
+    navigationIcon={<Memo />}
     title="App"
   />
   <div
@@ -29,7 +29,7 @@ exports[`<FirebaseApp /> renders without crashing and matches snapshot 1`] = `
         text="Loading authentication state..."
       />
     </div>
-    <WithStyles(Typography)
+    <WithStyles(ForwardRef(Typography))
       className="info"
       variant="body1"
     >
@@ -38,8 +38,8 @@ exports[`<FirebaseApp /> renders without crashing and matches snapshot 1`] = `
       </strong>
        
       Auth domain
-    </WithStyles(Typography)>
-    <WithStyles(Typography)
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Typography))
       className="info"
       variant="body1"
     >
@@ -48,7 +48,7 @@ exports[`<FirebaseApp /> renders without crashing and matches snapshot 1`] = `
       </strong>
        
       https://example.com/auth?refresh-token=%refreshToken%
-    </WithStyles(Typography)>
+    </WithStyles(ForwardRef(Typography))>
     <WithStyles(Disclaimer) />
   </div>
 </Fragment>

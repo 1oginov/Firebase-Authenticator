@@ -39,16 +39,16 @@ exports[`<Home /> renders without crashing and matches snapshot 1`] = `
   <div
     className="fabContainer"
   >
-    <WithStyles(Fab)
+    <WithStyles(ForwardRef(Fab))
       color="secondary"
       onClick={[Function]}
       variant="extended"
     >
-      <pure(AddIcon)
+      <AddIcon
         className="fabIcon"
       />
       Create Firebase app
-    </WithStyles(Fab)>
+    </WithStyles(ForwardRef(Fab))>
   </div>
   <WithStyles(Disclaimer) />
 </div>

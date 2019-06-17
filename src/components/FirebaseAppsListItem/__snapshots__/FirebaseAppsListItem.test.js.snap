@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FirebaseAppsListItem /> renders without crashing and matches snapshot 1`] = `
-<WithStyles(ListItem)
+<WithStyles(ForwardRef(ListItem))
   button={true}
   onClick={[Function]}
 >
-  <WithStyles(ListItemText)
+  <WithStyles(ForwardRef(ListItemText))
     primary="App"
     primaryTypographyProps={
       Object {
@@ -13,5 +13,5 @@ exports[`<FirebaseAppsListItem /> renders without crashing and matches snapshot 
       }
     }
   />
-</WithStyles(ListItem)>
+</WithStyles(ForwardRef(ListItem))>
 `;

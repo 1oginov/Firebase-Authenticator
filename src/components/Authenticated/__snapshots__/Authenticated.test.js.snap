@@ -1,43 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Authenticated /> renders without crashing and matches snapshot 1`] = `
-<WithStyles(Card)>
-  <WithStyles(CardMedia)
+<WithStyles(ForwardRef(Card))>
+  <WithStyles(ForwardRef(CardMedia))
     className="media"
     image="https://example.com/picture.png"
     title="User"
   />
-  <WithStyles(CardContent)>
-    <WithStyles(Typography)
+  <WithStyles(ForwardRef(CardContent))>
+    <WithStyles(ForwardRef(Typography))
       gutterBottom={true}
       variant="h6"
     >
       Signed in
-    </WithStyles(Typography)>
-    <WithStyles(Typography)>
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Typography))>
       Name
-    </WithStyles(Typography)>
-    <WithStyles(Typography)>
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Typography))>
       email@example.com
-    </WithStyles(Typography)>
-  </WithStyles(CardContent)>
-  <WithStyles(CardActions)
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(CardContent))>
+  <WithStyles(ForwardRef(CardActions))
     className="actions"
   >
-    <WithStyles(Button)
+    <WithStyles(ForwardRef(Button))
       color="secondary"
       onClick={[Function]}
       size="small"
     >
       Sign out
-    </WithStyles(Button)>
-    <WithStyles(Button)
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
       color="primary"
       onClick={[Function]}
       size="small"
     >
       Continue
-    </WithStyles(Button)>
-  </WithStyles(CardActions)>
-</WithStyles(Card)>
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(CardActions))>
+</WithStyles(ForwardRef(Card))>
 `;

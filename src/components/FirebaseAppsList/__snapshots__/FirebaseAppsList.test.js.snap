@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FirebaseAppsList /> renders without crashing and matches snapshot 1`] = `
-<WithStyles(Paper)
+<WithStyles(ForwardRef(Paper))
   className="paper firebase-apps-list"
 >
-  <WithStyles(List)>
+  <WithStyles(ForwardRef(List))>
     <FirebaseAppsListItem
       app={
         Object {
@@ -32,6 +32,6 @@ exports[`<FirebaseAppsList /> renders without crashing and matches snapshot 1`] 
       key="0"
       onSelect={[Function]}
     />
-  </WithStyles(List)>
-</WithStyles(Paper)>
+  </WithStyles(ForwardRef(List))>
+</WithStyles(ForwardRef(Paper))>
 `;

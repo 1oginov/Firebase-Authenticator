@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Disclaimer /> renders without crashing and matches snapshot 1`] = `
-<WithStyles(Typography)
+<WithStyles(ForwardRef(Typography))
   className="root"
 >
   Configured apps persisted only in this browser and nowhere else. The project is open source and available at
@@ -14,5 +14,5 @@ exports[`<Disclaimer /> renders without crashing and matches snapshot 1`] = `
   >
     GitHub
   </a>
-</WithStyles(Typography)>
+</WithStyles(ForwardRef(Typography))>
 `;

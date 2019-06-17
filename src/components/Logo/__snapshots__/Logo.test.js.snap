@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Logo /> renders without crashing and matches snapshot 1`] = `
-<WithStyles(Typography)
+<WithStyles(ForwardRef(Typography))
   className="root logo"
   variant="h4"
 >
   Firebase Authenticator
-</WithStyles(Typography)>
+</WithStyles(ForwardRef(Typography))>
 `;

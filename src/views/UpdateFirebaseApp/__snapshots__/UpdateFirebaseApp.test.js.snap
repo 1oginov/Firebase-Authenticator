@@ -39,22 +39,22 @@ exports[`<UpdateFirebaseApp /> renders without crashing and matches snapshot 1`]
       onSubmit={[Function]}
     />
     <div>
-      <WithStyles(Divider)
+      <WithStyles(ForwardRef(Divider))
         className="deleteDivider"
       />
       <div
         className="deleteContainer"
       >
-        <WithStyles(Button)
+        <WithStyles(ForwardRef(Button))
           className="deleteButton"
           onClick={[Function]}
           variant="outlined"
         >
           Delete
-        </WithStyles(Button)>
-        <WithStyles(Typography)>
+        </WithStyles(ForwardRef(Button))>
+        <WithStyles(ForwardRef(Typography))>
           This action cannot be undone!
-        </WithStyles(Typography)>
+        </WithStyles(ForwardRef(Typography))>
       </div>
     </div>
   </div>
