@@ -14,7 +14,7 @@ describe('<FirebaseAppForm />', () => {
       <FirebaseAppForm
         apiKey={app.config.apiKey}
         authDomain={app.config.authDomain}
-        buttonIcon={iconClass => <AddIcon className={iconClass} />}
+        buttonIcon={(iconClass) => <AddIcon className={iconClass} />}
         buttonTitle="Test form"
         classes={classes}
         className="firebase-app-form"
