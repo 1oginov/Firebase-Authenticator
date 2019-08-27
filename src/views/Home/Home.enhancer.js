@@ -8,7 +8,7 @@ import withNavigationHandlers from '../../enhancers/withNavigationHandlers';
 import * as R from '../../routes';
 
 const mapStateToProps = ({ firebaseApps }) => ({
-  apps: Object.keys(firebaseApps).map(key => firebaseApps[key]),
+  apps: Object.keys(firebaseApps).map((key) => firebaseApps[key]),
 });
 
 const mapDispatchToProps = { selectFirebaseApp: selectFirebaseAppCreator };

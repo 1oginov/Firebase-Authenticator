@@ -29,10 +29,16 @@ type State = {
 };
 
 export default class FirebaseApp extends React.Component<Props, State> {
-  state = {
-    appInstance: undefined,
-    isAuthenticated: undefined,
-  };
+  unregisterAuthObserver: ?Function;
+
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      appInstance: undefined,
+      isAuthenticated: undefined,
+    };
+  }
 
   componentDidMount() {
     const { app } = this.props;
@@ -65,8 +71,6 @@ export default class FirebaseApp extends React.Component<Props, State> {
     }
   }
 
-  unregisterAuthObserver: ?Function;
-
   renderAuth() {
     const { app } = this.props;
     const { appInstance, isAuthenticated } = this.state;
@@ -92,7 +96,7 @@ export default class FirebaseApp extends React.Component<Props, State> {
     } = this.props;
 
     return (
-      <React.Fragment>
+      <>
 
         <Bar
           actionItems={[
@@ -132,7 +136,7 @@ export default class FirebaseApp extends React.Component<Props, State> {
 
         </div>
 
-      </React.Fragment>
+      </>
     );
   }
 }
