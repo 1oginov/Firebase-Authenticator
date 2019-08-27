@@ -7,16 +7,16 @@ exports[`<FirebaseApp /> renders without crashing and matches snapshot 1`] = `
       Array [
         Object {
           "click": [Function],
-          "icon": <Memo />,
+          "icon": <Memo(EditIcon) />,
         },
         Object {
           "click": [Function],
-          "icon": <Memo />,
+          "icon": <Memo(ShareIcon) />,
         },
       ]
     }
     navigationClick={[Function]}
-    navigationIcon={<Memo />}
+    navigationIcon={<Memo(MenuIcon) />}
     title="App"
   />
   <div
