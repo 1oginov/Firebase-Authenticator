@@ -21,7 +21,7 @@ type Props = {
 const UpdateFirebaseApp = ({
   app, classes, handleBackClick, handleDeleteClick, onSubmit,
 }: Props) => (
-  <React.Fragment>
+  <>
 
     <Bar navigationClick={handleBackClick} title="Update Firebase app" />
 
@@ -29,7 +29,7 @@ const UpdateFirebaseApp = ({
 
       <FirebaseAppForm
         className={classes.form}
-        buttonIcon={iconClass => <SaveIcon className={iconClass} />}
+        buttonIcon={(iconClass) => <SaveIcon className={iconClass} />}
         buttonTitle="Save changes"
         initial={app}
         onSubmit={onSubmit}
@@ -51,7 +51,7 @@ const UpdateFirebaseApp = ({
 
     </div>
 
-  </React.Fragment>
+  </>
 );
 
 export default UpdateFirebaseApp;

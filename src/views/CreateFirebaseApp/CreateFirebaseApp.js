@@ -14,20 +14,20 @@ type Props = {
 };
 
 const CreateFirebaseApp = ({ classes, handleBackClick, onSubmit }: Props) => (
-  <React.Fragment>
+  <>
 
     <Bar navigationClick={handleBackClick} title="Create Firebase app" />
 
     <div className={classes.root}>
       <FirebaseAppForm
         className={classes.form}
-        buttonIcon={iconClass => <AddIcon className={iconClass} />}
+        buttonIcon={(iconClass) => <AddIcon className={iconClass} />}
         buttonTitle="Create app"
         onSubmit={onSubmit}
       />
     </div>
 
-  </React.Fragment>
+  </>
 );
 
 export default CreateFirebaseApp;
