@@ -52,7 +52,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.7.1",
     "react-test-renderer": "^16.8.6",
-    "rimraf": "^2.6.3"
+    "rimraf": "^3.0.0"
   },
   "browserslist": [
     ">0.2%",
