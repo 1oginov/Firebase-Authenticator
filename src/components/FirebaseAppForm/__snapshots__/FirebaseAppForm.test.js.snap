@@ -117,7 +117,7 @@ exports[`<FirebaseAppForm /> renders without crashing and matches snapshot 1`] =
       Firebase: sign in options
     </WithStyles(ForwardRef(Typography))>
     <WithStyles(ForwardRef(FormGroup))>
-      <WithStyles(WithFormControlContext(ForwardRef(FormControlLabel)))
+      <WithStyles(ForwardRef(FormControlLabel))
         control={
           <ForwardRef(WithStyles)
             checked={true}
@@ -127,7 +127,7 @@ exports[`<FirebaseAppForm /> renders without crashing and matches snapshot 1`] =
         }
         label="Email"
       />
-      <WithStyles(WithFormControlContext(ForwardRef(FormControlLabel)))
+      <WithStyles(ForwardRef(FormControlLabel))
         control={
           <ForwardRef(WithStyles)
             checked={true}
@@ -137,7 +137,7 @@ exports[`<FirebaseAppForm /> renders without crashing and matches snapshot 1`] =
         }
         label="GitHub"
       />
-      <WithStyles(WithFormControlContext(ForwardRef(FormControlLabel)))
+      <WithStyles(ForwardRef(FormControlLabel))
         control={
           <ForwardRef(WithStyles)
             checked={true}

@@ -4,7 +4,14 @@
     "airbnb"
   ],
   "rules": {
-    "react/jsx-filename-extension": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".js"
+        ]
+      }
+    ],
     "sort-keys": [
       "error",
       "asc",
