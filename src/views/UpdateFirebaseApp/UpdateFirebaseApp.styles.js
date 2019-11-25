@@ -7,15 +7,15 @@ import wrapView from '../../style/wrapView';
 const styles = (theme: Theme) => ({
   deleteButton: {
     color: theme.palette.error.main,
-    marginRight: 2 * theme.spacing.unit,
+    marginRight: theme.spacing(2),
   },
   deleteContainer: {
     alignItems: 'center',
     display: 'flex',
   },
   deleteDivider: {
-    marginBottom: 2 * theme.spacing.unit,
-    marginTop: 3 * theme.spacing.unit,
+    marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(3),
   },
   form: {
     width: 512,

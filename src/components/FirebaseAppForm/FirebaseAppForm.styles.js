@@ -7,13 +7,13 @@ const styles = (theme: Theme) => ({
     textAlign: 'center',
   },
   buttonIcon: {
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing(),
   },
   paper: {
-    marginBottom: 3 * theme.spacing.unit,
-    padding: 3 * theme.spacing.unit,
-    paddingBottom: 2 * theme.spacing.unit,
-    paddingTop: 2 * theme.spacing.unit,
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(3),
+    paddingBottom: theme.spacing(2),
+    paddingTop: theme.spacing(2),
   },
   root: {
     maxWidth: '100%',

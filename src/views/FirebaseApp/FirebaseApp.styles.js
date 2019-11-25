@@ -6,10 +6,10 @@ import wrapView from '../../style/wrapView';
 
 const styles = (theme: Theme) => ({
   authContainer: {
-    marginBottom: 3 * theme.spacing.unit,
+    marginBottom: theme.spacing(3),
   },
   info: {
-    marginBottom: 3 * theme.spacing.unit,
+    marginBottom: theme.spacing(3),
     textAlign: 'center',
   },
   root: wrapView(theme),
