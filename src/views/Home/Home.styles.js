@@ -6,18 +6,18 @@ import wrapView from '../../style/wrapView';
 
 const styles = (theme: Theme) => ({
   fabContainer: {
-    marginBottom: 3 * theme.spacing.unit,
+    marginBottom: theme.spacing(3),
     textAlign: 'center',
   },
   fabIcon: {
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing(),
   },
   firebaseAppsList: {
-    marginBottom: 3 * theme.spacing.unit,
+    marginBottom: theme.spacing(3),
   },
   logo: {
-    marginBottom: 5 * theme.spacing.unit,
-    marginTop: 2 * theme.spacing.unit,
+    marginBottom: theme.spacing(5),
+    marginTop: theme.spacing(2),
   },
   root: wrapView(theme),
 });

@@ -9,7 +9,7 @@ const styles = (theme: Theme) => ({
     flexDirection: 'column',
   },
   text: {
-    marginTop: 3 * theme.spacing.unit,
+    marginTop: theme.spacing(3),
     textAlign: 'center',
   },
 });

@@ -8,7 +8,7 @@ const styles = (theme: Theme) => ({
   },
   root: {
     color: theme.palette.text.hint,
-    maxWidth: 52 * theme.spacing.unit,
+    maxWidth: theme.spacing(52),
     textAlign: 'center',
   },
 });
