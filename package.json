@@ -41,7 +41,7 @@
     "redux-localstorage": "^0.4.1",
     "redux-thunk": "^2.3.0",
     "typeface-roboto": "0.0.75",
-    "uuid": "^7.0.0"
+    "uuid": "^8.0.0"
   },
   "devDependencies": {
     "coveralls": "^3.0.8",
