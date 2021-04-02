@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,UACI,WACJ,CAEA,WACI,YAAa,CACb,qBAAsB,CACtB,eACJ","file":"main.dbed50a8.chunk.css","sourcesContent":["html, body {\n    height: 100%;\n}\n\n#container {\n    display: flex;\n    flex-direction: column;\n    min-height: 100%;\n}\n"]}

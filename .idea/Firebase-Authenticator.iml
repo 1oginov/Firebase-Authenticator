@@ -5,7 +5,6 @@
       <sourceFolder url="file://$MODULE_DIR$/web-app/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/web-app/build" />
       <excludeFolder url="file://$MODULE_DIR$/web-app/coverage" />
-      <excludeFolder url="file://$MODULE_DIR$/docs" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
