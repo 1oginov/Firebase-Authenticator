@@ -1,5 +1,3 @@
-// @flow
-
 import type { Dispatch } from 'redux';
 
 import type { FirebaseApp } from '../lib/firebaseApp';

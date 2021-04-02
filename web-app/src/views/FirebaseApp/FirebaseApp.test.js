@@ -1,5 +1,3 @@
-// @flow
-
 import classes from 'identity-obj-proxy';
 import { shallow } from 'enzyme';
 import React from 'react';

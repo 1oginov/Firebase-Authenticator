@@ -1,5 +1,3 @@
-// @flow
-
 import {
   compose, withHandlers, withProps, type HOC,
 } from 'recompose';

@@ -1,5 +1,3 @@
-// @flow
-
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import * as React from 'react';

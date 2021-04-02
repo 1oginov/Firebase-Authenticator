@@ -1,5 +1,3 @@
-// @flow
-
 export const getQueryParameters = () => new URLSearchParams(window.location.search);
 
 export const getQueryParameter = (key: string) => {

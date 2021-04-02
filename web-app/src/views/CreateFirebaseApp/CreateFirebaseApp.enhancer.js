@@ -1,5 +1,3 @@
-// @flow
-
 import { connect } from 'react-redux';
 import { compose, withHandlers, type HOC } from 'recompose';
 

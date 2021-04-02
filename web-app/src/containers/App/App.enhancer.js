@@ -1,5 +1,3 @@
-// @flow
-
 import { createMuiTheme } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import {

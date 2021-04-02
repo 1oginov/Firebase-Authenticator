@@ -1,5 +1,3 @@
-// @flow
-
 import { lifecycle, type HOC } from 'recompose';
 
 const enhancer: HOC<*, {}> = lifecycle({

@@ -1,5 +1,3 @@
-// @flow
-
 export const NAVIGATE: 'NAVIGATE' = 'NAVIGATE';
 
 export const FIREBASE_APP_CREATED: 'FIREBASE_APP_CREATED' = 'FIREBASE_APP_CREATED';

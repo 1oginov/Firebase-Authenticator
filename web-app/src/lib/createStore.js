@@ -1,5 +1,3 @@
-// @flow
-
 import {
   applyMiddleware, compose, createStore, type Reducer, type Store as ReduxStore,
 } from 'redux';

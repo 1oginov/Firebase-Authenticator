@@ -1,5 +1,3 @@
-// @flow
-
 import type { Action } from '../actions';
 import * as T from '../actions/types';
 import type { FirebaseApp } from '../lib/firebaseApp';

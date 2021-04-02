@@ -1,5 +1,3 @@
-// @flow
-
 import FirebaseAppsList from './FirebaseAppsList';
 import style from './FirebaseAppsList.styles';
 

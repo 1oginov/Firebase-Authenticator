@@ -1,5 +1,3 @@
-// @flow
-
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, type Theme } from '@material-ui/core/styles';
 import * as React from 'react';

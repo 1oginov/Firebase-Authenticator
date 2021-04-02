@@ -1,5 +1,3 @@
-// @flow
-
 import { withStyles, type Theme } from '@material-ui/core/styles';
 
 const styles = (theme: Theme) => ({

@@ -1,5 +1,3 @@
-// @flow
-
 import Authenticated from './Authenticated';
 import enhance from './Authenticated.enhancer';
 import style from './Authenticated.styles';

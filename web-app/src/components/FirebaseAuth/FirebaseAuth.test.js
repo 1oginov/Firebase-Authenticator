@@ -1,5 +1,3 @@
-// @flow
-
 import firebase from 'firebase/app';
 import { shallow } from 'enzyme';
 import React from 'react';

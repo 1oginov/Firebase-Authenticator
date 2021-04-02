@@ -1,5 +1,3 @@
-// @flow
-
 import Fab from '@material-ui/core/Fab';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';

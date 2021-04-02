@@ -1,5 +1,3 @@
-// @flow
-
 import AddIcon from '@material-ui/icons/Add';
 import classes from 'identity-obj-proxy';
 import { shallow } from 'enzyme';

@@ -1,5 +1,3 @@
-// @flow
-
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import { shallow } from 'enzyme';
 import React from 'react';
