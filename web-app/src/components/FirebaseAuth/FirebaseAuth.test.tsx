@@ -1,9 +1,12 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 import firebase from 'firebase/app';
 import { shallow } from 'enzyme';
 import React from 'react';
 
+import app from 'lib/__test-data__/firebaseApp.json';
+
 import FirebaseAuth from './FirebaseAuth';
-import app from '../../lib/__test-data__/firebaseApp';
 
 const appInstance = firebase.initializeApp(app.config);
 

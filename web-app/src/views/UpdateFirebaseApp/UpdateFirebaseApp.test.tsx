@@ -1,8 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 import classes from 'identity-obj-proxy';
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import app from '../../lib/__test-data__/firebaseApp';
+import app from 'lib/__test-data__/firebaseApp.json';
+
 import UpdateFirebaseApp from './UpdateFirebaseApp';
 
 describe('<UpdateFirebaseApp />', () => {

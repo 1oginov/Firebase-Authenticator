@@ -1,10 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 import AddIcon from '@material-ui/icons/Add';
 import classes from 'identity-obj-proxy';
 import { shallow } from 'enzyme';
 import React from 'react';
 
+import app from 'lib/__test-data__/firebaseApp.json';
+
 import FirebaseAppForm from './FirebaseAppForm';
-import app from '../../lib/__test-data__/firebaseApp';
 
 describe('<FirebaseAppForm />', () => {
   it('renders without crashing and matches snapshot', () => {

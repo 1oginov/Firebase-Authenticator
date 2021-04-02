@@ -36,6 +36,7 @@ function registerValidSW(swUrl, config) {
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
               console.log(
+                // eslint-disable-next-line max-len
                 'New content is available and will be used when all tabs for this page are closed. See http://bit.ly/CRA-PWA.',
               );
 

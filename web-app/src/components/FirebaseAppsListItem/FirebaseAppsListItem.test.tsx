@@ -1,8 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 import { shallow } from 'enzyme';
 import React from 'react';
 
+import app from 'lib/__test-data__/firebaseApp.json';
+
 import FirebaseAppsListItem from './FirebaseAppsListItem';
-import app from '../../lib/__test-data__/firebaseApp';
 
 describe('<FirebaseAppsListItem />', () => {
   it('renders without crashing and matches snapshot', () => {

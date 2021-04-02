@@ -7,7 +7,7 @@ export type State = {
   currentFirebaseApp: string,
   firebaseApps: { [string]: FirebaseApp },
   route: string,
-  routeParams: Object,
+  routeParams: Record<string, unknown>,
 };
 
 const initialState = {
@@ -39,6 +39,7 @@ export default (state: State = initialState, action: Action): State => {
       };
 
     case T.FIREBASE_APP_DELETED: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { [action.payload]: deleted, ...firebaseApps } = state.firebaseApps;
 
       return {

@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 import classes from 'identity-obj-proxy';
 import { shallow } from 'enzyme';
 import React from 'react';
