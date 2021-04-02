@@ -8,11 +8,12 @@
     "clean:coverage": "rimraf coverage",
     "coverage": "npm run clean:coverage && npm run test:coverage",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
-    "lint": "eslint src",
+    "lint": "eslint --ext ts,tsx src",
     "start": "react-scripts start",
     "test": "react-scripts test",
     "test:coverage": "cross-env CI=true npm test -- --coverage",
-    "test:update": "cross-env CI=true npm test -- --updateSnapshot"
+    "test:update": "cross-env CI=true npm test -- --updateSnapshot",
+    "typecheck": "tsc"
   },
   "repository": {
     "type": "git",
