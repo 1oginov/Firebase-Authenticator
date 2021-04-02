@@ -1,11 +1,9 @@
 {
-  "name": "firebase-authenticator",
+  "name": "@loginov-rocks/firebase-authenticator-web-app",
   "version": "0.2.2",
-  "description": "Firebase Authenticator",
+  "description": "Web App",
   "scripts": {
     "build": "react-scripts build",
-    "build:release": "npm run check && npm run build && npm run clean:build && cpx \"build/**\" docs",
-    "check": "npm run lint && npm run flow && cross-env CI=true npm test",
     "clean:build": "rimraf docs",
     "clean:coverage": "rimraf coverage",
     "coverage": "npm run clean:coverage && npm run test:coverage",
@@ -19,12 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1oginov/Firebase-Authenticator.git"
+    "url": "git+https://github.com/loginov-rocks/Firebase-Authenticator.git"
   },
   "author": "Danila Loginov <danila@loginov.rocks> (https://loginov.rocks)",
   "license": "MIT",
+  "private": true,
   "bugs": {
-    "url": "https://github.com/1oginov/Firebase-Authenticator/issues"
+    "url": "https://github.com/loginov-rocks/Firebase-Authenticator/issues"
   },
   "homepage": "./",
   "dependencies": {
@@ -44,8 +43,6 @@
     "uuid": "^7.0.0"
   },
   "devDependencies": {
-    "coveralls": "^3.0.8",
-    "cpx": "^1.5.0",
     "cross-env": "^7.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",

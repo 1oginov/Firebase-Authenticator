@@ -1,0 +1,41 @@
+name: Web App CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - web-app/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - web-app/**
+
+jobs:
+  ci:
+    name: CI
+
+    defaults:
+      run:
+        working-directory: web-app
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version:
+          # last version
+          - 14
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run flow
+      - run: npm test
+      - run: npm run build
